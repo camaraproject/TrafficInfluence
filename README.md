@@ -18,7 +18,7 @@
 
 Sandbox API Repository to describe, develop, document, and test the TrafficInfluence Service API(s) within the Sub Project [EdgeCloud](https://lf-camaraproject.atlassian.net/wiki/x/ujLe)
 
-* API Repository wiki page: https://lf-camaraproject.atlassian.net/wiki/x/AgDe !! Update with concrete link (yet to be created)
+* API Repository wiki page: !! page to be created
 * Sub Project home page: https://lf-camaraproject.atlassian.net/wiki/x/ujLe 
 
 
