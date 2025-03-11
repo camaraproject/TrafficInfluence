@@ -37,7 +37,8 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 
 * Service API(s) “TrafficInfluence” (see APIBacklog.md) 
 * The API(s) provide(s) the API consumer with the ability to:  
-  * §Short API scope description§ !! Add here a scope description according to the API proposal
+  * Influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
+  * The traffic can be influencend even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application.
 * Describe, develop, document, and test the API(s)
 * Started: February 2025 (with previous work in EdgeCloud repository)
 <!-- * Incubating since: §incubation date$ --> 
