@@ -44,11 +44,8 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 <!-- * Incubating since: §incubation date$ --> 
 
 ## Release Information
+A pre-release of the TI API, in the context of https://github.com/camaraproject/EdgeCloud, is available here: https://github.com/camaraproject/EdgeCloud/releases/tag/v0.8.1
 
-The repository has no (pre)releases yet, work in progress is within the main branch.
-<!-- Optional: an explicit listing of the latest (pre-)release with additional information, e.g. links to the API definitions -->
-<!-- In addition use/uncomment one or multiple the following alternative options when becoming applicable -->
-<!-- Pre-releases of this sub project are available in https://github.com/camaraproject/TrafficInfluence/releases -->
 <!-- The latest public release is available here: https://github.com/camaraproject/TrafficInfluence/releases/latest -->
 <!-- For changes see [CHANGELOG.md](https://github.com/camaraproject/TrafficInfluence/blob/main/CHANGELOG.md) -->
 
