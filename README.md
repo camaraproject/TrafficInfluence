@@ -15,23 +15,9 @@
 
 # TrafficInfluence
 
-
 Sandbox API Repository to describe, develop, document, and test the TrafficInfluence Service API(s) within the Sub Project [EdgeCloud](https://lf-camaraproject.atlassian.net/wiki/x/ujLe)
 
-* API Repository wiki page: !! page to be created
-* Sub Project home page: https://lf-camaraproject.atlassian.net/wiki/x/ujLe 
-
-
-<!-- Alternative for Incubated API Repositories (always part of Sub Project, potentially created as part of the Incubation): 
-
-Incubating API Repository to evolve and maintain the definitions and documentation of TrafficInfluence Service API(s) within the Sub Project [EdgeCloud](https://lf-camaraproject.atlassian.net/wiki/x/ujLe)
-
-* API Repository wiki page: https://lf-camaraproject.atlassian.net/wiki/x/AgDe !! Update with concrete link
-* Sub Project home page: https://lf-camaraproject.atlassian.net/wiki/x/ujLe 
-!! Update with concrete link
--->
-<!-- for Graduation of an API Repository replace "Incubated" with "Graduated" and don't forget to exchange the badge :-) -->
-
+* API Repository wiki page: https://lf-camaraproject.atlassian.net/wiki/x/XQCbBQ
 
 ## Scope
 
@@ -44,7 +30,7 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 <!-- * Incubating since: §incubation date$ --> 
 
 ## Release Information
-A pre-release of the TI API, in the context of https://github.com/camaraproject/EdgeCloud, is available here: https://github.com/camaraproject/EdgeCloud/releases/tag/v0.8.1
+A pre-release of the TrafficInfluence API, in the context of https://github.com/camaraproject/EdgeCloud, is available here: https://github.com/camaraproject/EdgeCloud/releases/tag/v0.8.1
 
 <!-- The latest public release is available here: https://github.com/camaraproject/TrafficInfluence/releases/latest -->
 <!-- For changes see [CHANGELOG.md](https://github.com/camaraproject/TrafficInfluence/blob/main/CHANGELOG.md) -->
