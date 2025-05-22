@@ -79,7 +79,5 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     And Response Code is 201 
     And response contains the original TI Resource with the resource identifier ("$.trafficInfluenceID") unmodified, the status of the request ("$.state=ordered"), the new parameters valorised as in the PATCH request and the other original paramenters unmodified.
 
-  # Error path scenarios
-  TBD
 
    
