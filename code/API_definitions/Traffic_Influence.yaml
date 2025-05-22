@@ -176,7 +176,7 @@ info:
     error code. This will be the case even if the same device is
     identified by these two methods, as the server is unable to make
     this comparison.
-    ## API Documentation
+    # API Documentation
     ## Details
     The usage of the TI API is based on the management of a "TrafficInfluence"
     resource, an object containing the intent requested invoking the TI API and
@@ -299,6 +299,16 @@ info:
     information can be retrived using the CAMARA API: [Edge
     Application Management](https://github.com/camaraproject/EdgeCloud/blob\
     /main/code/API_definitions/Edge-Application-Management.yaml).
+    ## Additional CAMARA error responses
+    The list of error codes in this API specification is not exhaustive.
+    Therefore the API specification may not document some non-mandatory error
+    statuses as indicated in `CAMARA API Design Guidelines`.
+
+    Please refer to [CAMARA_common.yaml]({link_to_release}/CAMARA_common.yaml)
+    for a complete list of error responses.
+
+    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible
+    error response if it is explicitly documented in the API.
     # FAQ's
     (FAQs will be added in a later version of the documentation)
   version: wip
