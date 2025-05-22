@@ -9,6 +9,7 @@ info:
     ## Overview
     The reference scenario foresees a Service, composed by one or more Service
     Producers deployed in different geographical locations in a distributed
+    
     Telco Edge Cloud. The Service Producer, deployed at the Edge, is referred
     as Edge Application Server (EAS).\
     The life cycle management of the EAS can be done with the CAMARA
