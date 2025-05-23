@@ -14,48 +14,48 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     And the request body is set by default to a request body compliant with the schema
 
   # Happy path scenarios
-  
+
   # Mandatory valid paramenters
 
   # Mandatory valid paramenters for POST
   @TI_Resource_LCM_Mandatory_Parameters_Valid_CREATE
   Scenario: Create Traffic Influence (TI) Resource with mandatory parameters
-	Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
-	And the request body is set to a valid request body
+    Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
+    And the request body is set to a valid request body
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource and the optimal routing will be activated for any user on any location
     And Response Code is 201
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") valorised with a unique value
-	And the status of the request ("$.state=ordered")
-	And the previously used parameters valorised as in the POST request
+    And the status of the request ("$.state=ordered")
+    And the previously used parameters valorised as in the POST request
 
   # Optional valid paramenters
 
   # Optional valid paramenters for POST
   @TI_Resource_LCM_Mandatory_Parameters_Valid_CREATE
   Scenario: Create Traffic Influence (TI) Resource with also optional parameters
-	Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
-	And any other optional parameters (e.g. "$.instanceId", "$.zone" etc.)
+    Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
+    And any other optional parameters (e.g. "$.instanceId", "$.zone" etc.)
 	And the request body is set to a valid request body
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource
   	And the optimal routing will be activated according to the optional parameters specified (e.g. only in a specific zone or for a specific user)
     And Response Code is 201
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") valorised with a unique value
-	And the status of the request ("$.state=ordered")
-	And the previously used parameters valorised as in the POST request
+    And the status of the request ("$.state=ordered")
+    And the previously used parameters valorised as in the POST request
 
   # Optional valid paramenters for PATCH
   @TI_Resource_LCM_Mandatory_Parameters_Valid_MODIFY
   Scenario: Update a Traffic Influence (TI) Resource with also optional parameters
-	Given the request body property with the parameter "$.trafficInfluenceID" valorised with the reponse of the previous POST
-	And and with some of the optional parameters updated (the madatory parameters can not be updated)
+    Given the request body property with the parameter "$.trafficInfluenceID" valorised with the reponse of the previous POST
+    And and with some of the optional parameters updated (the madatory parameters can not be updated)
     And potentially, some of the optional parameters still having the same value as before
-	And the request body is set to a valid request body
+    And the request body is set to a valid request body
     When the HTTP "PATCH" request is sent
     Then Response Code is 202
-	And the response message is Accepted meaning that the resource deletion is accepted and in progress. 
-	And The satus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
+    And the response message is Accepted meaning that the resource deletion is accepted and in progress.
+    And The satus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
 
   # Mandatory or Optional valid paramenters
 
@@ -71,10 +71,10 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
   # Mandatory or Optional valid paramenters for DELETE
   @TI_Resource_LCM_Mandatory_Parameters_Valid_DEL
   Scenario: Delete Traffic Influence (TI) Resource with mandatory or optional parameters
-	Given the request body property with the parameter "$.trafficInfluenceID" valorised with the reponse of the previous POST
-	And the request body is set to a valid request body
+    Given the request body property with the parameter "$.trafficInfluenceID" valorised with the reponse of the previous POST
+    And the request body is set to a valid request body
     When the HTTP "DELETE" request is sent
     Then Response Code is 202
-	And the response message is Accepted meaning that the resource deletion is accepted and in progress. 
-	And The satus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
+    And the response message is Accepted meaning that the resource deletion is accepted and in progress.
+    And The satus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
    
