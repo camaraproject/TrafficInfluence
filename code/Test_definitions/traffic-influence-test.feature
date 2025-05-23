@@ -36,10 +36,10 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
   Scenario: Create Traffic Influence (TI) Resource with also optional parameters
     Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
     And any other optional parameters (e.g. "$.instanceId", "$.zone" etc.)
-	And the request body is set to a valid request body
+    And the request body is set to a valid request body
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource
-  	And the optimal routing will be activated according to the optional parameters specified (e.g. only in a specific zone or for a specific user)
+    And the optimal routing will be activated according to the optional parameters specified (e.g. only in a specific zone or for a specific user)
     And Response Code is 201
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") valorised with a unique value
     And the status of the request ("$.state=ordered")
@@ -77,4 +77,3 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     Then Response Code is 202
     And the response message is Accepted meaning that the resource deletion is accepted and in progress.
     And The satus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
-   
