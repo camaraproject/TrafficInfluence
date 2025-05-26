@@ -28,7 +28,7 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") valorised with a unique value
     And the status of the request ("$.state=ordered")
     And the previously used parameters valorised as in the POST request
-	And when the operation is completed by the network a callback is provided with the ("$.state") valorised accordingly the result.
+    And when the operation is completed by the network a callback is provided with the ("$.state") valorised accordingly the result.
 
   # Optional valid paramenters
 
@@ -45,8 +45,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") valorised with a unique value
     And the status of the request ("$.state=ordered")
     And the previously used parameters valorised as in the POST request
-	And when the peration is completed by the network a callback is provided with the ("$.state") valorised accordingly the result.
-	And if ("$.device") is used with multiple identifier, only the one used by the network is returned
+    And when the peration is completed by the network a callback is provided with the ("$.state") valorised accordingly the result.
+    And if ("$.device") is used with multiple identifier, only the one used by the network is returned
 
   # Optional valid paramenters for PATCH
   @TI_Resource_LCM_Mandatory_Parameters_Valid_MODIFY
@@ -59,7 +59,7 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     Then Response Code is 202
     And the response message is Accepted meaning that the resource deletion is accepted and in progress.
     And The staus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
-	And when the operation is completed by the network a callback is provided with the ("$.state") valorised accordingly the result.
+    And when the operation is completed by the network a callback is provided with the ("$.state") valorised accordingly the result.
 
   # Mandatory or Optional valid paramenters
 
