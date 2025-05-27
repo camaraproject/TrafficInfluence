@@ -286,7 +286,9 @@ info:
     Devices. "publicPort" can be used to identify the device. "publicPort" can
     be also used to identify the flow to be influenced. If the flow to be
     influenced is from a different public port, "sourceTrafficFilters" can be
-    used.\
+    used. If more than one Device identifier is provided only one will be used
+    by the TI API to perform the netwrok optimization. The one used is
+    returned in the notification callback.\
     \
     **Notification:**
     Developers can specify a callback URL on which notifications
@@ -353,7 +355,7 @@ paths:
             $ref: "#/components/schemas/AppId"
           description: Used to select traffic influence resources filtered by
            appId. For privacy reasons, if a resource is related to a user, the
-           paramentr Device is not exchanged.
+           parameter Device is not returned.
       tags:
         - Traffic Influence API read
       summary: Retries existing TrafficInfluence Resources
@@ -906,9 +908,10 @@ components:
       description: Notifican channel for changes in the TrafficInfluence
        resource. It returnes back the TrafficInfluece resource with the
        updated status ("state") and also proivides back the identifier
-       of the selected EAS instance.
+       of the selected EAS instance. If more than one Device identifier was
+       provided, just the one used by the TI API is returned.
       allOf:
-        - $ref: "#/components/schemas/TrafficInfluence"
+        - $ref: "#/components/schemas/PostTrafficInfluenceDevice"
       properties:
         selected_appInstanceId:
           $ref: '#/components/schemas/AppInstanceId'
