@@ -78,10 +78,9 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
 
   # Optional valid paramenters for POST with 3-legs authentication
   @TI_Resource_LCM_Optional_Parameters_Valid_CREATE_3-legs
-  Scenario: CReate Traffic Influence (TI) Resource with also optional parameters with 2 legs
+  Scenario: Create Traffic Influence (TI) Resource with also optional parameters with 3 legs
     Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
-    And any other optional parameters (e.g. "$.instanceId", "$.zone" etc.)
-    And the request body is set to a valid request body
+    And any other optional parameters (e.g. "$.instanceId", "$.zone" etc.) with the request body set to a valid request body
     And The header "Authorization" is set to a valid access token identifying a device
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource
