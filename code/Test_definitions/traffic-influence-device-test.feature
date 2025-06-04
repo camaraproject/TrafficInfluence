@@ -25,7 +25,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource and the optimal routing will be activated for any user on any location
     And Response Code is 201
-    And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") valorised with a unique value
+    And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
+
     And the status of the request ("$.state=ordered")
     And the previously used parameters valorised as in the POST request
     # The received callback must be compliant and should carry the aspected values
