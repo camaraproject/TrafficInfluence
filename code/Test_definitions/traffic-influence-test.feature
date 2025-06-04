@@ -69,7 +69,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     Then Response Code is 202
     And the response message is Accepted meaning that the resource deletion is accepted and in progress.
     And The staus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
-    And when the operation is completed by the network a callback is provided with the ("$.state") valorised accordingly the result.
+    And when the operation is completed by the network a callback is provided with the ("$.state") set according to the result.
+
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
