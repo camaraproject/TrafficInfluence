@@ -61,7 +61,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
   @TI_Resource_LCM_Optional_Parameters_Valid_MODIFY
   Scenario: Update a Traffic Influence (TI) Resource with also optional parameters
     Given the request body property with the parameter "$.trafficInfluenceID" valorised with the reponse of the previous POST
-    And and with some of the optional parameters updated (the madatory parameters can not be updated)
+    And and with some of the optional parameters updated (the mandatory parameters can not be updated)
+
     And potentially, some of the optional parameters still having the same value as before
     And the request body is set to a valid request body
     When the HTTP "PATCH" request is sent
