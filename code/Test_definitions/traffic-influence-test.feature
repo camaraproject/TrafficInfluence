@@ -81,7 +81,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
   # Mandatory or Optional valid paramenters for GET
   @TI_Resource_LCM_Optional_Parameters_Valid_READ
   Scenario: Read Traffic Influence (TI) Resource with also optional parameters
-    Given the request body property with the parameter "$.trafficInfluenceID" valorised with the reponse of the previous POST
+    Given the request body property with the parameter "$.trafficInfluenceID" set per with the response of the previous POST
+
     And the request body is set to a valid request body
     When the HTTP "GET" request is sent
     Then Response code is 200
