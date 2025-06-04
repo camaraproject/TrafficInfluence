@@ -99,7 +99,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
 
     And the status of the request ("$.state=ordered")
-    And the previously used parameters valorised as in the POST request
+    And the previously used parameters set as in the POST request
+
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
