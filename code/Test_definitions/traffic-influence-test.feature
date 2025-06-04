@@ -90,7 +90,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
   # Mandatory or Optional valid paramenters for DELETE
   @TI_Resource_LCM_Optional_Parameters_Valid_DEL
   Scenario: Delete Traffic Influence (TI) Resource with mandatory or optional parameters
-    Given the request body property with the parameter "$.trafficInfluenceID" valorised with the reponse of the previous POST
+    Given the request body property with the parameter "$.trafficInfluenceID" set per the response of the previous POST
+
     And the request body is set to a valid request body
     When the HTTP "DELETE" request is sent
     Then Response Code is 202
