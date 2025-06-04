@@ -35,7 +35,8 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") valorised accordingly to the result
-    And if ("$.device") is used with multiple identifier, only the one used by the network is returned
+    And if ("$.device") is used with multiple identifiers, only the one used by the network is returned
+
 
   # Mandatory valid paramenters for POST with 3-legs authentication
   @TI_Resource_LCM_Mandatory_Parameters_Valid_CREATE_3-legs
