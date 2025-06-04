@@ -105,5 +105,6 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
-    And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") valorised accordingly to the result
+    And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
+
     And if the device in the authorization token included multiple identifier, only the one used by the network is returned
