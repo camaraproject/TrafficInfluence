@@ -155,7 +155,7 @@ info:
     This API optionally requires the API consumer to identify a phone number
     as the subject of the API as follows:
     - When the API is invoked using a two-legged access token, the subject
-    will be identified from the optional `phoneNumber` object field, which
+    will be identified from the optional `device` object field, which
     therefore MUST be provided.
     - When a three-legged access token is used however, this optional
     identifier MUST NOT be provided, as the subject will be uniquely
@@ -167,11 +167,11 @@ info:
     identified during the authentication process.
     ## Error handling:
     - If the subject cannot be identified from the access token and the
-    optional `phoneNumber` object field is not included in the request, then
+    optional `device` object field is not included in the request, then
     the server will return an error with the
     `422 MISSING_IDENTIFIER` error code.
     - If the subject can be identified from the access token and the
-    optional `phoneNumber` object field is also included in the request, then
+    optional `device` object field is also included in the request, then
     the server will return an error with the `422 UNNECESSARY_IDENTIFIER`
     error code. This will be the case even if the same device is
     identified by these two methods, as the server is unable to make
