@@ -907,7 +907,7 @@ components:
       type: object
       description: Notifican channel for changes in the TrafficInfluence
        resource. It returns back the TrafficInfluence resource with the
-       updated status ("state"). Proivides back the identifiers
+       updated status ("state"). It provides back the identifiers
        of the selected EAS instances. If more than one Device identifier was
        provided, just the one used by the TI API is returned.
       allOf:
