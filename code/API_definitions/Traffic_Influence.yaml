@@ -906,15 +906,17 @@ components:
     TrafficInfluenceNotification:
       type: object
       description: Notifican channel for changes in the TrafficInfluence
-       resource. It returnes back the TrafficInfluece resource with the
-       updated status ("state") and also proivides back the identifier
-       of the selected EAS instance. If more than one Device identifier was
+       resource. It returnes back the TrafficInfluence resource with the
+       updated status ("state"). Proivides back the identifiers
+       of the selected EAS instances. If more than one Device identifier was
        provided, just the one used by the TI API is returned.
       allOf:
         - $ref: "#/components/schemas/PostTrafficInfluenceDevice"
       properties:
         selected_appInstanceId:
-          $ref: '#/components/schemas/AppInstanceId'
+          type: array
+          items:
+            $ref: '#/components/schemas/AppInstanceId'
     DateTime:
       type: string
       format: date-time
