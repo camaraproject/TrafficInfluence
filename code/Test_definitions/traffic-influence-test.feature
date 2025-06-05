@@ -36,7 +36,6 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
 
-
   # Optional valid paramenters
 
   # Optional valid paramenters for POST
@@ -59,7 +58,6 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
-
 
   # Optional valid paramenters for PATCH
   @TI_Resource_LCM_Optional_Parameters_Valid_MODIFY
