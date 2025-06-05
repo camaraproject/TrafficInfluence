@@ -38,7 +38,6 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
 
     And if ("$.device") is used with multiple identifiers, only the one used by the network is returned
 
-
   # Mandatory valid paramenters for POST with 3-legs authentication
   @TI_Resource_LCM_Mandatory_Parameters_Valid_CREATE_3-legs
   Scenario: Create Traffic Influence (TI) Resource with mandatory parameters with 3 legs
