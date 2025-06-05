@@ -25,17 +25,15 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource and the optimal routing will be activated for any user on any location
     And Response Code is 201
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
-
     And the status of the request ("$.state=ordered")
     And the previously used parameters set as in the POST request
-
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
-
     And if ("$.device") is used with multiple identifiers, only the one used by the network is returned
 
   # Mandatory valid paramenters for POST with 3-legs authentication
@@ -47,14 +45,13 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource and the optimal routing will be activated for any user on any location
     And Response Code is 201
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
-
     And the status of the request ("$.state=ordered")
     And the previously used parameters set as in the POST request
-
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
 
@@ -72,17 +69,15 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     Then it should be created a new TI Resource
     And the optimal routing will be activated according to the optional parameters specified (e.g. only in a specific zone or for a specific user)
     And Response Code is 201
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
-
     And the status of the request ("$.state=ordered")
     And the previously used parameters set as in the POST request
-
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
-
     And if ("$.device") is used with multiple identifier, only the one used by the network is returned
 
   # Optional valid paramenters for POST with 3-legs authentication
@@ -95,15 +90,13 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     Then it should be created a new TI Resource
     And the optimal routing will be activated according to the optional parameters specified (e.g. only in a specific zone or for a specific user)
     And Response Code is 201
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
-
     And the status of the request ("$.state=ordered")
     And the previously used parameters set as in the POST request
-
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
-
     And if the device in the authorization token included multiple identifier, only the one used by the network is returned
