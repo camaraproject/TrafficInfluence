@@ -76,8 +76,7 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
-    And the callback carries the information defined in "/components/schemas/CloudEvent"
-    And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
+    And the callback carries the information defined in "/components/schemas/CloudEvent" with the parameter ("$.state") set accordingly to the result
     And if ("$.device") is used with multiple identifier, only the one used by the network is returned
 
   # Optional valid paramenters for POST with 3-legs authentication
@@ -97,6 +96,5 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influece-devices
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
-    And the callback carries the information defined in "/components/schemas/CloudEvent"
-    And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
+    And the callback carries the information defined in "/components/schemas/CloudEvent" with the parameter ("$.state") set accordingly to the result
     And if the device in the authorization token included multiple identifier, only the one used by the network is returned
