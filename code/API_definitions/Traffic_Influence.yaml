@@ -905,7 +905,7 @@ components:
                 - "bearer"
     TrafficInfluenceNotification:
       type: object
-      description: Notifican channel for changes in the TrafficInfluence
+      description: Notification channel for changes in the TrafficInfluence
        resource. It returns back the TrafficInfluence resource with the
        updated status ("state"). It provides back the identifiers
        of the selected EAS instances. If more than one Device identifier was
