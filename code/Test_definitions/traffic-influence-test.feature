@@ -1,4 +1,4 @@
-Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
+Feature: CAMARA Traffic Influence API, v0.9.0-alpha.1 - Operation traffic-influeces
   # Input to be provided by the implementation to the tester
   #
   # Implementation indications:
@@ -25,14 +25,13 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource and the optimal routing will be activated for any user on any location
     And Response Code is 201
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
-
     And the status of the request ("$.state=ordered")
     And the previously used parameters set as in the POST request
-
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
 
@@ -48,14 +47,13 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
     Then it should be created a new TI Resource
     And the optimal routing will be activated according to the optional parameters specified (e.g. only in a specific zone or for a specific user)
     And Response Code is 201
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And response contains the TI Resource with the resource identifier ("$.trafficInfluenceID") set to a unique value
-
     And the status of the request ("$.state=ordered")
     And the previously used parameters set as in the POST request
-
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
 
@@ -63,20 +61,18 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
   @TI_Resource_LCM_Optional_Parameters_Valid_MODIFY
   Scenario: Update a Traffic Influence (TI) Resource with also optional parameters
     Given the request body property with the parameter "$.trafficInfluenceID" set per the response of the previous POST
-
     And and with some of the optional parameters updated (the mandatory parameters can not be updated)
-
     And potentially, some of the optional parameters still having the same value as before
     And the request body is set to a valid request body
     When the HTTP "PATCH" request is sent
     Then Response Code is 202
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And the response message is Accepted meaning that the resource deletion is accepted and in progress.
     And The staus update can be retrived with the GET method on that TI Resource. The final value of the parameter "state" is "deleted".
     And when the operation is completed by the network a callback is provided with the ("$.state") set according to the result.
-
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter "$.data" valorised with the results of the PATCH operation
 
@@ -86,23 +82,23 @@ Feature: CAMARA Traffic Influence API, vWIP - Operation traffic-influeces
   @TI_Resource_LCM_Optional_Parameters_Valid_READ
   Scenario: Read Traffic Influence (TI) Resource with also optional parameters
     Given the request body property with the parameter "$.trafficInfluenceID" set per with the response of the previous POST
-
     And the request body is set to a valid request body
     When the HTTP "GET" request is sent
     Then Response code is 200
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And response contains a TI Resource with a potentially updated status ("$.state") reporting the current status of the traffic influece configuration (ordered, created, active, error, deleted)
 
   # Mandatory or Optional valid paramenters for DELETE
   @TI_Resource_LCM_Optional_Parameters_Valid_DEL
   Scenario: Delete Traffic Influence (TI) Resource with mandatory or optional parameters
     Given the request body property with the parameter "$.trafficInfluenceID" set per the response of the previous POST
-
     And the request body is set to a valid request body
     When the HTTP "DELETE" request is sent
     Then Response Code is 202
+    And the response header "x-correlator" has same value as the request header "x-correlator"
     And the response message is Accepted meaning that the resource deletion is accepted and in progress.
     # The received callback must be compliant and should carry the aspected values
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
-    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged"
+    And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set according to the result
