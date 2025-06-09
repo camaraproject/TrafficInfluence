@@ -155,7 +155,7 @@ info:
     This API optionally requires the API consumer to identify a phone number
     as the subject of the API as follows:
     - When the API is invoked using a two-legged access token, the subject
-    will be identified from the optional `phoneNumber` object field, which
+    will be identified from the optional `device` object field, which
     therefore MUST be provided.
     - When a three-legged access token is used however, this optional
     identifier MUST NOT be provided, as the subject will be uniquely
@@ -167,11 +167,11 @@ info:
     identified during the authentication process.
     ## Error handling:
     - If the subject cannot be identified from the access token and the
-    optional `phoneNumber` object field is not included in the request, then
+    optional `device` object field is not included in the request, then
     the server will return an error with the
     `422 MISSING_IDENTIFIER` error code.
     - If the subject can be identified from the access token and the
-    optional `phoneNumber` object field is also included in the request, then
+    optional `device` object field is also included in the request, then
     the server will return an error with the `422 UNNECESSARY_IDENTIFIER`
     error code. This will be the case even if the same device is
     identified by these two methods, as the server is unable to make
@@ -313,7 +313,7 @@ info:
     error response if it is explicitly documented in the API.
     # FAQ's
     (FAQs will be added in a later version of the documentation)
-  version: wip
+  version: 0.9.0-alpha.1
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -325,7 +325,7 @@ externalDocs:
 #                                     Servers                              #
 ############################################################################
 servers:
-  - url: "{apiRoot}/traffic-influence/vwip"
+  - url: "{apiRoot}/traffic-influence/v0.9alpha1"
     variables:
       apiRoot:
         default: http://localhost:9091
@@ -905,16 +905,18 @@ components:
                 - "bearer"
     TrafficInfluenceNotification:
       type: object
-      description: Notifican channel for changes in the TrafficInfluence
-       resource. It returnes back the TrafficInfluece resource with the
-       updated status ("state") and also proivides back the identifier
-       of the selected EAS instance. If more than one Device identifier was
+      description: Notification channel for changes in the TrafficInfluence
+       resource. It returns back the TrafficInfluence resource with the
+       updated status ("state"). It provides back the identifiers
+       of the selected EAS instances. If more than one Device identifier was
        provided, just the one used by the TI API is returned.
       allOf:
         - $ref: "#/components/schemas/PostTrafficInfluenceDevice"
       properties:
         selected_appInstanceId:
-          $ref: '#/components/schemas/AppInstanceId'
+          type: array
+          items:
+            $ref: '#/components/schemas/AppInstanceId'
     DateTime:
       type: string
       format: date-time
