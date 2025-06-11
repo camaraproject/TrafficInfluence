@@ -30,9 +30,8 @@ Sandbox API Repository to describe, develop, document, and test the TrafficInflu
 <!-- * Incubating since: §incubation date$ --> 
 
 ## Release Information
-A pre-release of the TrafficInfluence API, in the context of https://github.com/camaraproject/EdgeCloud, is available here: https://github.com/camaraproject/EdgeCloud/releases/tag/v0.8.1
-
-<!-- The latest public release is available here: https://github.com/camaraproject/TrafficInfluence/releases/latest -->
+Note: Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
+* A pre-release of the TrafficInfluence API, in the context of https://github.com/camaraproject/EdgeCloud, is available here: https://github.com/camaraproject/EdgeCloud/releases/tag/v0.8.1
 * **The latest available version (pre-release) of the CAMARA TrafficInfluence API is v0.9.0-alpha.1**
 * The pre-release Tag is [r1.1](https://github.com/camaraproject/TrafficInfluence/releases/tag/r1.1).
 - API definition **with inline documentation**:
