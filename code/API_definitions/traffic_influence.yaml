@@ -657,6 +657,8 @@ components:
         $ref: "#/components/schemas/XCorrelator"
   headers:
     x-correlator:
+      description: Correlation id for the different services
+      schema:
         $ref: "#/components/schemas/XCorrelator"
   #########################################################################
   #                             Events/Callbacks                          #
