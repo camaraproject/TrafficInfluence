@@ -918,7 +918,7 @@ components:
           items:
             $ref: '#/components/schemas/AppInstanceId'
         deviceResponse:
-            $ref: "#/components/schemas/DeviceResponse"
+          $ref: "#/components/schemas/DeviceResponse"
     DateTime:
       type: string
       format: date-time
