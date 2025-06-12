@@ -313,7 +313,7 @@ info:
     error response if it is explicitly documented in the API.
     # FAQ's
     (FAQs will be added in a later version of the documentation)
-  version: 0.9.0-alpha.1
+  version: wip
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -325,7 +325,7 @@ externalDocs:
 #                                     Servers                              #
 ############################################################################
 servers:
-  - url: "{apiRoot}/traffic-influence/v0.9alpha1"
+  - url: "{apiRoot}/traffic-influence/vwip"
     variables:
       apiRoot:
         default: http://localhost:9091
@@ -917,6 +917,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AppInstanceId'
+        deviceResponse:
+          $ref: "#/components/schemas/DeviceResponse"
     DateTime:
       type: string
       format: date-time
@@ -1061,6 +1063,25 @@ components:
       type: string
       format: ipv6
       example: 2001:db8:85a3:8d3:1319:8a2e:370:7344
+    DeviceResponse:
+      description: |
+        An identifier for the end-user equipment able to connect to the network
+          that the response refers to. This parameter is only returned when the
+          API consumer includes the `device` parameter in their request (i.e.
+          they are using a two-legged access token), and is relevant when more
+          than one device identifier is specified, as only one of those device
+          identifiers is allowed in the response.
+        If the API consumer provides more than one device identifier in their
+        request, the API provider must return a single identifier which is the
+        one they are using to fulfil the request, even if the identifiers do not
+        match the same device. API provider does not perform any logic to
+        validate/correlate that the indicated device identifiers match the same
+        device. No error should be returned if the identifiers are otherwise
+        valid to prevent API consumers correlating different identifiers with a
+        given end user.
+      allOf:
+        - $ref: "#/components/schemas/Device"
+        - maxProperties: 1
     AppInstanceId:
       type: string
       format: uuid
