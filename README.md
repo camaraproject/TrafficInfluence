@@ -6,12 +6,6 @@
 <a href="https://github.com/camaraproject/TrafficInfluence/blob/main/LICENSE" title="License"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg?style=plastic"></a>
 <a href="https://github.com/camaraproject/TrafficInfluence/releases/latest" title="Latest Release"><img src="https://img.shields.io/github/release/camaraproject/TrafficInfluence?style=plastic"></a>
 <a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Sandbox API Repository"><img src="https://img.shields.io/badge/Sandbox%20API%20Repository-yellow?style=plastic"></a>
-<!--
-<a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Incubated API Repository"><img src="https://img.shields.io/badge/Incubated%20API%20Repository-green?style=plastic"></a>
-<a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Graduated API Repository"><img src="https://img.shields.io/badge/Graduated%20API%20Repository-silver?style=plastic"></a>
-<a href="https://github.com/camaraproject/Governance/blob/main/ProjectStructureAndRoles.md" title="Working Group"><img src="https://img.shields.io/badge/Working%20Group-red?style=plastic"></a>
--->
-
 
 # TrafficInfluence
 
