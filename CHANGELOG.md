@@ -67,7 +67,7 @@ The traffic can be influenced even when the user device moves to a different geo
 - API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.1/code/API_definitions/traffic-influence.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.1/code/API_definitions/traffic-influence.yaml&nocors)
-  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.1/code/API_definitions/traffic-influence.yaml)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.1/code/API_definitions/traffic-influence.yaml)
 
 ## Please note:
 
