@@ -61,8 +61,8 @@ The API definition(s) are based on
 * Identity and Consent Management v0.4.0-alpha.1
 
 ## traffic-influence v0.9.0-alpha.1
-This is the a alpha release of the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
-The traffic can be influencend even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
+This is a pre-release of the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
+The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearest instance of an Application.
 
 - API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.1/code/API_definitions/traffic-influence.yaml)
