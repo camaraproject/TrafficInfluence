@@ -16,7 +16,7 @@ Checklist for traffic-influence in v0.9.0-rc.1 in r.1.2
 | 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |   Y  | r1.2 |
 | 11 | Change log updated                           |   M   |         M         |    M    |    M   |   Y  | [link](/CHANGELOG.md) |
 | 12 | Previous public-release was certified        |   O   |         O         |    O    |    M   |   N  |      |
-| 13 | API description (for marketing)              |   O   |         O         |    M    |    M   |   Y  | [wiki link](https://lf-camaraproject.atlassian.net/wiki/spaces/CAM/pages/94044253/TrafficInfluence) |
+| 13 | API description (for marketing)              |   O   |         O         |    M    |    M   |   Y  | [wiki link](https://lf-camaraproject.atlassian.net/wiki/xxx) |
 
 
 To fill the checklist:
