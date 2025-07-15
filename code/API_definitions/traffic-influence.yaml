@@ -259,7 +259,7 @@ info:
     traffic toward a specific Application instance. If just some specific
     Application instance must be affected, it is not required to specify any
     "region" or "zone", the parameter "appInstanceId" can be used.
-    The value for appInstanceId can be retrived using the CAMARA API 
+    The value for appInstanceId can be retrived using the CAMARA API
     Edge-Application-Management.yaml, included in the Edge Cloud API Family.\
     \
     **sourceTrafficFilters:**
