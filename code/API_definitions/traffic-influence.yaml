@@ -259,9 +259,8 @@ info:
     traffic toward a specific Application instance. If just some specific
     Application instance must be affected, it is not required to specify any
     "region" or "zone", the parameter "appInstanceId" can be used.
-    The value for appInstanceId can be retrived using the CAMARA API: [Edge
-    Application Management](https://github.com/camaraproject/EdgeCloud/blob\
-    /main/code/API_definitions/Edge-Application-Management.yaml).\
+    The value for appInstanceId can be retrived using the CAMARA API
+    Edge-Application-Management.yaml, included in the Edge Cloud API Family.\
     \
     **sourceTrafficFilters:**
     The traffic can be from a specific public port in the device. If this
@@ -485,14 +484,16 @@ paths:
                 $ref: '#/components/schemas/TrafficInfluence'
         "400":
           $ref: "#/components/responses/Generic400"
-        '500':
-          $ref: '#/components/responses/GenericError'
-        '504':
-          $ref: '#/components/responses/BackendConnTimeout'
         "401":
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
       callbacks:
         onTrafficInfluenceChanged:
           $ref: "#/components/callbacks/onTrafficInfluenceChanged"
@@ -536,8 +537,12 @@ paths:
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
-        '404':
-          $ref: '#/components/responses/ResNotFound'
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
     patch:
       tags:
         - Traffic Influence API write
@@ -583,8 +588,10 @@ paths:
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
-        "409":
-          $ref: "#/components/responses/Generic409"
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
         "429":
           $ref: "#/components/responses/Generic429"
       callbacks:
@@ -607,14 +614,16 @@ paths:
       responses:
         '202':
           $ref: '#/components/responses/OkDeletionInProgress'
-        "400":
-          $ref: "#/components/responses/Generic400"
         "401":
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
-        '404':
-          $ref: '#/components/responses/ResNotFound'
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
       callbacks:
         onTrafficInfluenceChanged:
           $ref: "#/components/callbacks/onTrafficInfluenceChanged"
@@ -1113,9 +1122,17 @@ components:
       description: Information in case of error
       type: object
       required:
+                 
+                
         - code
         - message
       properties:
+                
+                      
+                                                                               
+               
+                       
+                                                
         code:
           type: string
           description: Code given to this error
