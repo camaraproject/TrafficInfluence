@@ -615,7 +615,7 @@ paths:
         '202':
           $ref: '#/components/responses/OkDeletionInProgress'
         "400":
-          $ref: "#/components/responses/Generic400"             
+          $ref: "#/components/responses/Generic400"
         "401":
           $ref: "#/components/responses/Generic401"
         "403":
