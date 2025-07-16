@@ -1145,7 +1145,7 @@ components:
             $ref: '#/components/schemas/ErrResponse'
           example:
             status: ERROR
-            message: Resource not found                                      
+            message: Resource not found
     GenericError:
       description: An unknow error has occurred
       headers:
@@ -1411,4 +1411,3 @@ components:
                 status: 429
                 code: TOO_MANY_REQUESTS
                 message: Either out of resource quota or reaching rate limiting.
- 
