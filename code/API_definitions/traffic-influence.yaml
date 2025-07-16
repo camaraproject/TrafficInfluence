@@ -259,9 +259,8 @@ info:
     traffic toward a specific Application instance. If just some specific
     Application instance must be affected, it is not required to specify any
     "region" or "zone", the parameter "appInstanceId" can be used.
-    The value for appInstanceId can be retrived using the CAMARA API: [Edge
-    Application Management](https://github.com/camaraproject/EdgeCloud/blob\
-    /main/code/API_definitions/Edge-Application-Management.yaml).\
+    The value for appInstanceId can be retrived using the CAMARA API
+    Edge-Application-Management.yaml, included in the Edge Cloud API Family.\
     \
     **sourceTrafficFilters:**
     The traffic can be from a specific public port in the device. If this
@@ -313,19 +312,19 @@ info:
     error response if it is explicitly documented in the API.
     # FAQ's
     (FAQs will be added in a later version of the documentation)
-  version: wip
+  version: 0.9.0-rc.1
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  x-camara-commonalities: 0.5.0
+  x-camara-commonalities: 0.6
 externalDocs:
   description: Product documentation at Camara
-  url: https://github.com/camaraproject/EdgeCloud
+  url: https://github.com/camaraproject/TrafficInfluence
 ############################################################################
 #                                     Servers                              #
 ############################################################################
 servers:
-  - url: "{apiRoot}/traffic-influence/vwip"
+  - url: "{apiRoot}/traffic-influence/v0.9rc1"
     variables:
       apiRoot:
         default: http://localhost:9091
@@ -485,14 +484,16 @@ paths:
                 $ref: '#/components/schemas/TrafficInfluence'
         "400":
           $ref: "#/components/responses/Generic400"
-        '500':
-          $ref: '#/components/responses/GenericError'
-        '504':
-          $ref: '#/components/responses/BackendConnTimeout'
         "401":
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
       callbacks:
         onTrafficInfluenceChanged:
           $ref: "#/components/callbacks/onTrafficInfluenceChanged"
@@ -536,8 +537,12 @@ paths:
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
-        '404':
-          $ref: '#/components/responses/ResNotFound'
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
     patch:
       tags:
         - Traffic Influence API write
@@ -583,8 +588,10 @@ paths:
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
-        "409":
-          $ref: "#/components/responses/Generic409"
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
         "429":
           $ref: "#/components/responses/Generic429"
       callbacks:
@@ -613,8 +620,12 @@ paths:
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
-        '404':
-          $ref: '#/components/responses/ResNotFound'
+        "404":
+          $ref: '#/components/responses/Generic404'
+        "422":
+          $ref: "#/components/responses/Generic422"
+        "429":
+          $ref: "#/components/responses/Generic429"
       callbacks:
         onTrafficInfluenceChanged:
           $ref: "#/components/callbacks/onTrafficInfluenceChanged"
