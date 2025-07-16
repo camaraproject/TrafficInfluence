@@ -1,5 +1,5 @@
 
-# Changelog CAMARA TrafficInfluence
+# Changelog CAMARA EnergyFootprintNotification
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ The below sections record the changes for each API version in each release as fo
 
 ## Release Notes
 
-This pre-release contains the definition and documentation of:
+This release contains the definition and documentation of:
 * traffic-influence v0.9.0-rc.1
 
 The API definition(s) are based on
@@ -27,13 +27,13 @@ The API definition(s) are based on
 * Identity and Consent Management v0.4.0-rc.1
 
 ## traffic-influence v0.9.0-rc.1
-This is the first release candidate for the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
-The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearest instance of an Application.
+This is the release candidate for the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
+The traffic can be influencend even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
 
 - API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.2/code/API_definitions/traffic-influence.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.2/code/API_definitions/traffic-influence.yaml&nocors)
-  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.2/code/API_definitions/traffic-influence.yaml)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.2/code/API_definitions/traffic-influence.yaml)
 
 ## Please note:
 
@@ -44,7 +44,8 @@ The traffic can be influenced even when the user device moves to a different geo
 ## What's New
 
 * Support for the following use cases: https://github.com/camaraproject/TrafficInfluence/discussions/15
-* x-correlator update: https://github.com/camaraproject/EnergyFootprintNotification/pull/79
+* x-correlator update: https://github.com/camaraproject/TrafficInfluence/pull/49
+* alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53
 
 
 **Full Changelog**: https://github.com/camaraproject/TrafficInfluence/commits/r1.1...r1.2
@@ -61,13 +62,13 @@ The API definition(s) are based on
 * Identity and Consent Management v0.4.0-alpha.1
 
 ## traffic-influence v0.9.0-alpha.1
-This is an alpha release for the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
-The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearest instance of an Application.
+This is the a alpha release of the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
+The traffic can be influencend even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
 
 - API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.1/code/API_definitions/traffic-influence.yaml)
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.1/code/API_definitions/traffic-influence.yaml&nocors)
-  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.1/code/API_definitions/traffic-influence.yaml)
+  - [View it on Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.1/code/API_definitions/traffic-influence.yaml)
 
 ## Please note:
 
