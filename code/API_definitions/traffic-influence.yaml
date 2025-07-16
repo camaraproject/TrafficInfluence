@@ -614,6 +614,8 @@ paths:
       responses:
         '202':
           $ref: '#/components/responses/OkDeletionInProgress'
+        "400":
+          $ref: "#/components/responses/Generic400"             
         "401":
           $ref: "#/components/responses/Generic401"
         "403":
@@ -1106,18 +1108,6 @@ components:
     ########################################################################
     #                                     Responses                        #
     ########################################################################
-    ErrResponse:
-      description: Responce feedback in case of errors
-      type: object
-      properties:
-        status:
-          description: status for the error
-          type: string
-          example: OK
-        message:
-          description: additional message for the error
-          type: string
-          example: OK
     ErrorInfo:
       description: Information in case of error
       type: object
@@ -1132,18 +1122,6 @@ components:
           type: string
           description: Detailed error description
   responses:
-    ResNotFound:
-      description: The specified resource was not found
-      headers:
-        x-correlator:
-          $ref: '#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrResponse'
-          example:
-            status: ERROR
-            message: Resource not found
     GenericError:
       description: An unknow error has occurred
       headers:
@@ -1152,7 +1130,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrResponse'
+            $ref: '#/components/schemas/ErrorInfo'
           example:
             status: ERROR
             message: Generic error
@@ -1164,7 +1142,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrResponse'
+            $ref: '#/components/schemas/ErrorInfo'
           example:
             status: ERROR
             message: Backend connection timeout
@@ -1176,7 +1154,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/ErrResponse'
+            $ref: '#/components/schemas/ErrorInfo'
           example:
             status: OK
             message: Accepted
