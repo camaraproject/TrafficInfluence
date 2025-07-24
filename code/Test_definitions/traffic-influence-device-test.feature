@@ -1,4 +1,4 @@
-Feature: CAMARA Traffic Influence API, v0.9.0-alpha.1 - Operation traffic-influece-devices
+Feature: CAMARA Traffic Influence API, v0.9.0-rc.1 - Operation traffic-influece-devices
   # Input to be provided by the implementation to the tester
   #
   # Implementation indications:
