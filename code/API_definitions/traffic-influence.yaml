@@ -341,7 +341,7 @@ paths:
   /traffic-influences:
     get:
       security:
-        - oAuth2:
+        - openId:
             - 'traffic-influence:traffic-influences:read'
       parameters:
         - $ref: '#/components/parameters/x-correlator'
@@ -397,7 +397,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/x-correlator'
       security:
-        - oAuth2:
+        - openId:
             - 'traffic-influence:traffic-influences:write'
       requestBody:
         description: Describes the request body
@@ -516,7 +516,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/x-correlator'
       security:
-        - oAuth2:
+        - openId:
             - 'traffic-influence:traffic-influences:read'
       responses:
         '200':
@@ -554,7 +554,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/x-correlator'
       security:
-        - oAuth2:
+        - openId:
             - 'traffic-influence:traffic-influences:update'
       requestBody:
         description: Describes the request body
@@ -604,7 +604,7 @@ paths:
        the TrafficInfluence resource identified by "trafficInfluenceID".
       operationId: deleteTrafficInfluence
       security:
-        - oAuth2:
+        - openId:
             - 'traffic-influence:traffic-influences:delete'
       parameters:
         - $ref: '#/components/parameters/x-correlator'
@@ -632,25 +632,11 @@ paths:
 components:
   securitySchemes:
     openId:
-      description: to support Consent Management, via 3-legged authentication,
-        when sensitive data are exchanged.
+      description: to support both Consent Management, via 3-legged authentication,
+        when sensitive data are exchanged and OAuth2, 2-legged authentication,
+        for endpoints not exchanging sensitive data.
       type: openIdConnect
       openIdConnectUrl: https://example.com/.well-known/openid-configuration
-    oAuth2:
-      type: oauth2
-      description: for endpoints not exchanging sensitive data.
-      flows:
-        clientCredentials:
-          tokenUrl: 'https://example.com/oauth/token'
-          scopes:
-            'traffic-influence:traffic-influences:write': Grants write access
-              to the TrafficInfluence resource
-            'traffic-influence:traffic-influences:delete': Grants delete
-              access to the TrafficInfluence resource
-            'traffic-influence:traffic-influences:read': Grants read access
-              to the TrafficInfluence resource
-            'traffic-influence:traffic-influences:update': Grants update
-              access to the TrafficInfluence resource
     notificationsBearerAuth:
       description: Bearer authentication for notifications
       type: http
