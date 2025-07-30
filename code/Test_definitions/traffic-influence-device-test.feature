@@ -1,14 +1,13 @@
-Feature: CAMARA Traffic Influence API, v0.9.0-rc.1 - Operation traffic-influece-devices
+Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation traffic-influece-devices
   # Input to be provided by the implementation to the tester
-  #  * apiRoot: API root of the server URL
+  #
   # Implementation indications:
   #
   # Testing assets:
   # * The optimal routing for a device must be activated
   #
   Background: Common traffic-influence-devices setup
-    Given an environment at "apiRoot"
-    And the resource "/traffic-influence-devices"
+    Given the path "/traffic-influence-devices"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
