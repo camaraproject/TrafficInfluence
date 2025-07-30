@@ -7,7 +7,7 @@ Feature: CAMARA Traffic Influence API, v0.9.0-rc.1 - Operation traffic-influece-
   # * The optimal routing for a device must be activated
   #
   Background: Common traffic-influence-devices setup
-    Given an environment at "apiRoot" 
+    Given an environment at "apiRoot"
     And the resource "/traffic-influence-devices"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
