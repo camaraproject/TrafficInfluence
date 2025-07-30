@@ -690,7 +690,7 @@ components:
                   data:
                     selected_appInstanceId:
                       - "3fa85f64-5717-4562-b3fc-2c963f66afa6"
-                    deviceResponse: 
+                    deviceResponse:
                       phoneNumber: "+123456789"
                   time: "2018-04-05T17:31:00Z"
           responses:
@@ -984,7 +984,7 @@ components:
     SinkCredential:
       description: A sink credential provides authentication or authorization information necessary to enable delivery of events to a target.
       type: object
-      example: 
+      example:
         credentialType: ACCESSTOKEN
       properties:
         credentialType:
@@ -994,7 +994,7 @@ components:
             - ACCESSTOKEN
             - REFRESHTOKEN
           description: |
-            The type of the credential. 
+            The type of the credential.
             Note: Type of the credential - MUST be set to ACCESSTOKEN for now
       discriminator:
         propertyName: credentialType
