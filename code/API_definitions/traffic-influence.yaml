@@ -133,26 +133,24 @@ info:
     invoked with a user Device identifier (“Device”). For each user Device,
     a TI API invocation is required. The optimal routing is provided only for
     the requested Devices.
-
     # Authorization and authentication
-
     The "Camara Security and Interoperability Profile" provides details of how
-    an API consumer requests an access token. Please refer to Identity and Consent
-    Management (https://github.com/camaraproject/IdentityAndConsentManagement/)
-    for the released version of the profile.
-
-    The specific authorization flows to be used will be agreed upon during the
-    onboarding process, happening between the provider of the application consuming
-    the API and the operator's API exposure platform, taking into account the
-    declared purpose for accessing the API, whilst also being subject to the
-    prevailing legal framework dictated by local legislation.
-
-    In cases where personal data is processed by the API and users can exercise
-    their rights through mechanisms such as opt-in and/or opt-out, the use of
-    three-legged access tokens is mandatory. This ensures that the API remains
-    in compliance with privacy regulations, upholding the principles of
-    transparency and user-centric privacy-by-design.
-
+    an API consumer requests an access token. Please refer to Identity and
+    Consent Management
+    (https://github.com/camaraproject/IdentityAndConsentManagement/)
+    for the released version of the profile.\
+    \
+    The specific authorization flows to be used will be agreed upon during
+    the onboarding process, happening between the provider of the application
+    consuming the API and the operator's API exposure platform, taking into
+    account the declared purpose for accessing the API, whilst also being
+    subject to the prevailing legal framework dictated by local legislation.\
+    \
+    In cases where personal data is processed by the API and users can
+    exercise their rights through mechanisms such as opt-in and/or opt-out,
+    the use of three-legged access tokens is mandatory. This ensures that
+    the API remains in compliance with privacy regulations, upholding the
+    principles of transparency and user-centric privacy-by-design.
     # Identifying the phone number from the access token
     This API optionally requires the API consumer to identify a phone number
     as the subject of the API as follows:
@@ -311,7 +309,7 @@ info:
     error response if it is explicitly documented in the API.
     # FAQ's
     (FAQs will be added in a later version of the documentation)
-  version: 0.9.0-rc.1
+  version: 0.10.0-rc.1
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -323,7 +321,7 @@ externalDocs:
 #                                     Servers                              #
 ############################################################################
 servers:
-  - url: "{apiRoot}/traffic-influence/v0.9rc1"
+  - url: "{apiRoot}/traffic-influence/v0.10rc1"
     variables:
       apiRoot:
         default: http://localhost:9091
@@ -662,7 +660,7 @@ components:
   callbacks:
     onTrafficInfluenceChanged:
       # when data is sent, it will be sent to the callback url provided
-      '{$request.body.notificationSink.sink}':
+      '{$request.body.subscriptionRequest.sink}':
         post:
           tags:
             - Traffic Influence CALLBACK Operation
@@ -683,6 +681,18 @@ components:
               application/cloudevents+json:
                 schema:
                   $ref: '#/components/schemas/CloudEvent'
+                example:
+                  id: "string"
+                  source: "https://notificationSendServer12.supertelco.com"
+                  specversion: "1.0"
+                  datacontenttype: "application/json"
+                  type: "org.camaraproject.traffic-influence.v1.traffic-influence-change"
+                  data:
+                    selected_appInstanceId:
+                      - "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                    deviceResponse: 
+                      phoneNumber: "+123456789"
+                  time: "2018-04-05T17:31:00Z"
           responses:
             '202':
               description: Your server implementation should return this HTTP
@@ -769,14 +779,8 @@ components:
             destinationProtocol:
               allOf:
                 - $ref: "#/components/schemas/Protocol"
-        notificationUri:
-          type: string
-          description: Defines the callback uri which should be notified in
-           asynchronous way when the state for the requested resources changes
-           (i.e. ordered to activated)
-        notificationAuthToken:
-          type: string
-          description: Authentification token for callback API
+        subscriptionRequest:
+          $ref: '#/components/schemas/SubscriptionRequest'
       required:
         - apiConsumerId
         - appId
@@ -791,8 +795,8 @@ components:
           readOnly: true
         state:
           readOnly: true
-        notificationSink:
-          $ref: '#/components/schemas/NotificationSink'
+        subscriptionRequest:
+          $ref: '#/components/schemas/SubscriptionRequest'
     PostTrafficInfluenceDevice:
       description: iherits from TrafficInfluence restricting the access
         (readonly) to "trafficInfluenceID" and "state", to be used by the API
@@ -806,8 +810,8 @@ components:
           readOnly: true
         state:
           readOnly: true
-        notificationSink:
-          $ref: '#/components/schemas/NotificationSink'
+        subscriptionRequest:
+          $ref: '#/components/schemas/SubscriptionRequest'
     PatchTrafficInfluence:
       description: inherits from TrafficInfluence and restricts the access to
        certain parameters.
@@ -823,8 +827,8 @@ components:
           readOnly: true
         state:
           readOnly: true
-        notificationSink:
-          $ref: '#/components/schemas/NotificationSink'
+        subscriptionRequest:
+          $ref: '#/components/schemas/SubscriptionRequest'
     CloudEvent:
       description: The notification callback
       required:
@@ -842,67 +846,29 @@ components:
         source:
           $ref: '#/components/schemas/Source'
         type:
-          type: string
-          description: 'type of event as defined in each CAMARA API'
-          example: 'org.camaraproject.iot.dta-status-changed-event'
-          minLength: 25
+          $ref: "#/components/schemas/EventTypeNotification"
         specversion:
           type: string
-          description: Version of the specification to which this event
-            conforms (must be 1.0 if it conforms to cloudevents 1.0.2
-            version)
+          description: Version of the specification to which this event conforms
+            (must be 1.0 if it conforms to cloudevents 1.0.2 version)
           enum:
             - "1.0"
         datacontenttype:
           type: string
-          description: 'media-type that describes the event payload
-          encoding, must be "application/json" for CAMARA APIs'
+          description: 'media-type that describes the event payload encoding,
+            must be "application/json" for CAMARA APIs'
           enum:
             - application/json
         data:
           type: object
-          description: Event details payload described in each CAMARA
-            API and referenced by its type
-          allOf:
-            - $ref: '#/components/schemas/TrafficInfluenceNotification'
+          description: Event details payload described in each CAMARA API and
+            referenced by its type
         time:
           $ref: "#/components/schemas/DateTime"
-    NotificationSink:
-      description: ""
-      type: object
-      required:
-        - sink
-      properties:
-        sink:
-          description: 'https callback address where the notification
-            must be POST-ed'
-          type: string
-        sinkCredentials:
-          description: Sink credential provides authorization information
-            necessary to enable delivery of events to a target
-          type: object
-          properties:
-            credentialtype:
-              type: string
-              description: Type of the credential - MUST be set to
-                ACCESSTOKEN for now
-              enum:
-                - "ACCESSTOKEN"
-            accessToken:
-              type: string
-              description: Access Token granting access to the POST
-                operation to create notification
-            accessTokenExpireUtc:
-              type: string
-              format: date-time
-              description: An absolute UTC instant at which the access
-                token shall be considered expired.
-            accessTokenType:
-              type: string
-              description: Type of access token - MUST be set to bearer
-                for now
-              enum:
-                - "bearer"
+      discriminator:
+        propertyName: "type"
+        mapping:
+          org.camaraproject.traffic-influence.v1.traffic-influence-change: "#/components/schemas/TrafficInfluenceNotification"
     TrafficInfluenceNotification:
       type: object
       description: Notification channel for changes in the TrafficInfluence
@@ -943,6 +909,196 @@ components:
           * /cloudevents/spec/pull/123
           * 1-555-123-4567
       example: "https://notificationSendServer12.supertelco.com"
+    SubscriptionRequest:
+      description: The request for creating a event-type event subscription
+      type: object
+      required:
+        - sink
+        - protocol
+        - config
+        - types
+      properties:
+        protocol:
+          $ref: "#/components/schemas/SubscriptionProtocol"
+        sink:
+          type: string
+          format: uri
+          pattern: ^https:\/\/.+$
+          description: The address to which events shall be delivered using the selected protocol.
+          example: "https://endpoint.example.com/sink"
+        sinkCredential:
+          $ref: "#/components/schemas/SinkCredential"
+        types:
+          description: |
+            Camara Event types eligible to be delivered by this subscription.
+            Note: the maximum number of event types per subscription will be decided at API project level
+          type: array
+          minItems: 1
+          maxItems: 1
+          items:
+            $ref: "#/components/schemas/SubscriptionEventType"
+        config:
+          $ref: "#/components/schemas/Config"
+      discriminator:
+        propertyName: protocol
+        mapping:
+          HTTP: "#/components/schemas/HTTPSubscriptionRequest"
+          MQTT3: "#/components/schemas/MQTTSubscriptionRequest"
+          MQTT5: "#/components/schemas/MQTTSubscriptionRequest"
+          AMQP: "#/components/schemas/AMQPSubscriptionRequest"
+          NATS: "#/components/schemas/NATSSubscriptionRequest"
+          KAFKA: "#/components/schemas/ApacheKafkaSubscriptionRequest"
+    SubscriptionProtocol:
+      type: string
+      enum: ["HTTP", "MQTT3", "MQTT5", "AMQP", "NATS", "KAFKA"]
+      description: Identifier of a delivery protocol. Only HTTP is allowed for now
+      example: "HTTP"
+    Config:
+      description: |
+        Implementation-specific configuration parameters needed by the subscription manager for acquiring events.
+        In CAMARA we have predefined attributes like `subscriptionExpireTime`, `subscriptionMaxEvents`, `initialEvent`
+        Specific event type attributes must be defined in `subscriptionDetail`
+        Note: if a request is performed for several event type, all subscribed event will use same `config` parameters.
+      type: object
+      required:
+        - subscriptionDetail
+      properties:
+        subscriptionDetail:
+          $ref: "#/components/schemas/CreateSubscriptionDetail"
+        subscriptionExpireTime:
+          type: string
+          format: date-time
+          example: 2023-01-17T13:18:23.682Z
+          description: The subscription expiration time (in date-time format) requested by the API consumer. It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone. Up to API project decision to keep it.
+        subscriptionMaxEvents:
+          type: integer
+          description: Identifies the maximum number of event reports to be generated (>=1) requested by the API consumer - Once this number is reached, the subscription ends. Up to API project decision to keep it.
+          minimum: 1
+          example: 5
+        initialEvent:
+          type: boolean
+          description: |
+            Set to `true` by API consumer if consumer wants to get an event as soon as the subscription is created and current situation reflects event request.
+            Example: Consumer request Roaming event. If consumer sets initialEvent to true and device is in roaming situation, an event is triggered
+            Up to API project decision to keep it.
+    SinkCredential:
+      description: A sink credential provides authentication or authorization information necessary to enable delivery of events to a target.
+      type: object
+      example: 
+        credentialType: ACCESSTOKEN
+      properties:
+        credentialType:
+          type: string
+          enum:
+            - PLAIN
+            - ACCESSTOKEN
+            - REFRESHTOKEN
+          description: |
+            The type of the credential. 
+            Note: Type of the credential - MUST be set to ACCESSTOKEN for now
+      discriminator:
+        propertyName: credentialType
+        mapping:
+          PLAIN: "#/components/schemas/PlainCredential"
+          ACCESSTOKEN: "#/components/schemas/AccessTokenCredential"
+          REFRESHTOKEN: "#/components/schemas/RefreshTokenCredential"
+      required:
+        - credentialType
+    PlainCredential:
+      type: object
+      description: A plain credential as a combination of an identifier and a secret.
+      allOf:
+        - $ref: "#/components/schemas/SinkCredential"
+        - type: object
+          required:
+            - identifier
+            - secret
+          properties:
+            identifier:
+              description: The identifier might be an account or username.
+              type: string
+            secret:
+              description: The secret might be a password or passphrase.
+              type: string
+    AccessTokenCredential:
+      type: object
+      description: An access token credential.
+      allOf:
+        - $ref: "#/components/schemas/SinkCredential"
+        - type: object
+          properties:
+            accessToken:
+              description: REQUIRED. An access token is a previously acquired token granting access to the target resource.
+              type: string
+            accessTokenExpiresUtc:
+              type: string
+              format: date-time
+              description: |
+                REQUIRED. An absolute (UTC) timestamp at which the token shall be considered expired.
+                In the case of an ACCESS_TOKEN_EXPIRED termination reason, implementation should notify the client before the expiration date.
+                If the access token is a JWT and registered "exp" (Expiration Time) claim is present, the two expiry times should match.
+                It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
+              example: "2023-07-03T12:27:08.312Z"
+            accessTokenType:
+              description: REQUIRED. Type of the access token (See [OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-7.1)).
+              type: string
+              enum:
+                - bearer
+          required:
+            - accessToken
+            - accessTokenExpiresUtc
+            - accessTokenType
+    RefreshTokenCredential:
+      type: object
+      description: An access token credential with a refresh token.
+      allOf:
+        - $ref: "#/components/schemas/SinkCredential"
+        - type: object
+          properties:
+            accessToken:
+              description: REQUIRED. An access token is a previously acquired token granting access to the target resource.
+              type: string
+            accessTokenExpiresUtc:
+              type: string
+              format: date-time
+              description: |
+                REQUIRED. An absolute (UTC) timestamp at which the token shall be considered expired.
+                In the case of an ACCESS_TOKEN_EXPIRED termination reason, implementation should notify the client before the expiration date.
+                If the access token is a JWT and registered "exp" (Expiration Time) claim is present, the two expiry times should match.
+                It must follow [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) and must have time zone.
+              example: "2023-07-03T12:27:08.312Z"
+            accessTokenType:
+              description: REQUIRED. Type of the access token (See [OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-7.1)).
+              type: string
+              enum:
+                - bearer
+            refreshToken:
+              description: REQUIRED. An refresh token credential used to acquire access tokens.
+              type: string
+            refreshTokenEndpoint:
+              type: string
+              format: uri
+              description: REQUIRED. A URL at which the refresh token can be traded for an access token.
+      required:
+        - accessToken
+        - accessTokenExpiresUtc
+        - accessTokenType
+        - refreshToken
+        - refreshTokenEndpoint
+    CreateSubscriptionDetail:
+      description: The detail of the requested event subscription.
+      type: object
+    EventTypeNotification:
+      type: string
+      description: Event triggered when an event-type event occurred.
+      enum:
+        - org.camaraproject.traffic-influence.v1.traffic-influence-change
+    SubscriptionEventType:
+      type: string
+      description: |
+        event-type that could be subscribed through this subscription. Several event-type could be defined.
+      enum:
+        - org.camaraproject.traffic-influence.v1.traffic-influence-change
     XCorrelator:
       type: string
       pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
@@ -1325,6 +1481,31 @@ components:
                  can be modified when it is fully implemented and activated.
                  Please wait for the resource status (state) to be "active"
                  before trying to update it.
+    Generic410:
+      description: Gone
+      headers:
+        x-correlator:
+          $ref: "#/components/headers/x-correlator"
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 410
+                  code:
+                    enum:
+                      - GONE
+          examples:
+            GENERIC_410_GONE:
+              description: Use in notifications flow to allow API Consumer to indicate that its callback is no longer available
+              value:
+                status: 410
+                code: GONE
+                message: Access to the target resource is no longer available.
     Generic422:
       description: Unprocessable Content
       headers:
