@@ -387,7 +387,7 @@ paths:
       summary: Creates a new TrafficInfluence resource influencing the
         traffic toward local instances of the Application for any user.
       description: Takes as input an object containing the intents from the API
-        Consumer and creates a TrafficInfluence resourse accordingly. The
+        Consumer and creates a TrafficInfluence resource accordingly. The
         trafficInfluenceID parameter, that is part of the object, must not be
         valorized when creating a new resource. For this reason the
         trafficInfluenceID parameter must be avoided in the object, anyway it
@@ -443,7 +443,7 @@ paths:
       summary: Creates a new TrafficInfluence resource influencing the
         traffic toward local instances of the Application for a specific user.
       description: Takes as input an object containing the intents from the API
-        Consumer and creates a TrafficInfluence resourse accordingly. The
+        Consumer and creates a TrafficInfluence resource accordingly. The
         trafficInfluenceID parameter, that is part of the object, must not be
         valorized when creating a new resource. For this reason the
         trafficInfluenceID parameter must be avoided in the object, anyway it
