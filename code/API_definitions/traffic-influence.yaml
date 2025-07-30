@@ -694,6 +694,13 @@ components:
               headers:
                 x-correlator:
                   $ref: '#/components/headers/x-correlator'
+            '401':
+              description: Your server should return this HTTP status code if
+               the request can not be authenticated due to missing, invalid,
+               or expired credentials. A new authentication is required.
+              headers:
+                x-correlator:
+                  $ref: '#/components/headers/x-correlator'
   ##########################################################################
   #                                    Resources                           #
   ##########################################################################
