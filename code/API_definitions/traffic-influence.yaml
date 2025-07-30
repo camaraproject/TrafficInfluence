@@ -4,7 +4,7 @@ openapi: 3.0.3
 #                                     API info                             #
 ############################################################################
 info:
-  title: Traffic Influence API
+  title: Traffic Influence
   description: |
     ## Overview
     The reference scenario foresees a Service, composed by one or more Service
