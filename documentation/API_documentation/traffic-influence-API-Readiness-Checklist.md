@@ -1,13 +1,13 @@
 # API Readiness Checklist
 
-Checklist for traffic-influence in v0.9.0-rc.1 in r.1.2
+Checklist for traffic-influence in v0.10.0-rc.1 in r.1.2
 
 | Nr | API release assets  | alpha | release-candidate |  initial<br>public | stable<br> public | Status | Reference information |
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|:----|
 |  1 | API definition                               |   M   |         M         |    M    |    M   |   Y  | [link](/code/API_definitions/traffic-influence.yaml) |
 |  2 | Design guidelines from Commonalities applied |   O   |         M         |    M    |    M   |   Y  | [r3.2](https://github.com/camaraproject/Commonalities/releases/tag/r3.2) |
 |  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   |   Y  | [r3.2](https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r3.2) |
-|  4 | API versioning convention applied            |   M   |         M         |    M    |    M   |   Y  | v0.9.0-rc.1 |
+|  4 | API versioning convention applied            |   M   |         M         |    M    |    M   |   Y  | v0.10.0-rc.1 |
 |  5 | API documentation                            |   M   |         M         |    M    |    M   |   Y  | inline in YAML |
 |  6 | User stories                                 |   O   |         O         |    O    |    M   |   Y  | [link](/documentation/API_documentation/traffic-influence-user-story-use-case-1.md) |
 |  7 | Basic API test cases & documentation         |   O   |         M         |    M    |    M   |   Y  | [Device](/code/Test_definitions/traffic-influence-device-test.feature), [Every User](/code/Test_definitions/traffic-influence-test.feature) |
