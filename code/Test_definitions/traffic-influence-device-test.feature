@@ -1,4 +1,4 @@
-Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation traffic-influece-devices
+Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation postTrafficInfluenceDevice
   # Input to be provided by the implementation to the tester
   #
   # Implementation indications:
@@ -15,9 +15,9 @@ Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation traffic-influece
 
   # Happy path scenarios
 
-  # Mandatory valid paramenters
+  # Mandatory valid parameters
 
-  # Mandatory valid paramenters for POST with 2-legs authentication
+  # Mandatory valid parameters for POST with 2-legs authentication
   @TI_Resource_LCM_Mandatory_Parameters_Valid_CREATE_2-legs
   Scenario: Create Traffic Influence (TI) Resource with mandatory parameters with 2 legs
     Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId", "$.device")
@@ -36,7 +36,7 @@ Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation traffic-influece
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
     And if ("$.device") is used with multiple identifiers, only the one used by the network is returned
 
-  # Mandatory valid paramenters for POST with 3-legs authentication
+  # Mandatory valid parameters for POST with 3-legs authentication
   @TI_Resource_LCM_Mandatory_Parameters_Valid_CREATE_3-legs
   Scenario: Create Traffic Influence (TI) Resource with mandatory parameters with 3 legs
     Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
@@ -57,9 +57,9 @@ Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation traffic-influece
 
     And if the device in the autorization token included multiple identifier, only the one used by the network is returned
 
-  # Optional valid paramenters
+  # Optional valid parameters
 
-  # Optional valid paramenters for POST with 2-legs authentication
+  # Optional valid parameters for POST with 2-legs authentication
   @TI_Resource_LCM_Optional_Parameters_Valid_CREATE_2-legs
   Scenario: Create Traffic Influence (TI) Resource with also optional parameters with 2 legs
     Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId", "$.device")
@@ -79,7 +79,7 @@ Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation traffic-influece
     And the callback carries the information defined in "/components/schemas/CloudEvent" with the parameter ("$.state") set accordingly to the result
     And if ("$.device") is used with multiple identifier, only the one used by the network is returned
 
-  # Optional valid paramenters for POST with 3-legs authentication
+  # Optional valid parameters for POST with 3-legs authentication
   @TI_Resource_LCM_Optional_Parameters_Valid_CREATE_3-legs
   Scenario: Create Traffic Influence (TI) Resource with also optional parameters with 3 legs
     Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
