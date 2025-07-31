@@ -42,8 +42,6 @@ The traffic can be influencend even when the user device moves to a different ge
 - The release scope is defined here: https://github.com/camaraproject/TrafficInfluence/issues/14
 
 ### Added
-
-* Support for the following use cases: https://github.com/camaraproject/TrafficInfluence/discussions/15#discussioncomment-13215019
   
 ### Changed
 
