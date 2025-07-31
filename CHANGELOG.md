@@ -41,12 +41,22 @@ The traffic can be influencend even when the user device moves to a different ge
 - The release is suitable for implementers, but it is not recommended to use the API with customers in productive environments
 - The release scope is defined here: https://github.com/camaraproject/TrafficInfluence/issues/14
 
-## What's New
+### Added
 
-* Support for the following use cases: https://github.com/camaraproject/TrafficInfluence/discussions/15
+* Support for the following use cases: https://github.com/camaraproject/TrafficInfluence/discussions/15#discussioncomment-13215019
+  
+### Changed
+
+* Renamed operations: https://github.com/camaraproject/EnergyFootprintNotification/pull/83 
+* Changed OAuth2 with OpenId: https://github.com/camaraproject/EnergyFootprintNotification/pull/83
+* Updated the name of the test file to be coherent with the operationId: https://github.com/camaraproject/EnergyFootprintNotification/pull/83
 * x-correlator update: https://github.com/camaraproject/TrafficInfluence/pull/49
-* alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53
+* Alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53
+* Updated the name of the test file to be coherent with the operationId: https://github.com/camaraproject/TrafficInfluence/pull/53
 
+### Fixed
+
+### Removed
 
 **Full Changelog**: https://github.com/camaraproject/TrafficInfluence/commits/r1.1...r1.2
 
