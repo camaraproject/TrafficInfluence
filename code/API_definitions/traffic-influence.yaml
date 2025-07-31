@@ -10,142 +10,159 @@ info:
     The reference scenario foresees a Service, composed by one or more Service
     Producers deployed in different geographical locations in a distributed
     Telco Edge Cloud. The Service Producer, deployed at the Edge, is referred
-    as Edge Application Server (EAS).\
-    The life cycle management of the EAS can be done with the CAMARA
+    as Edge Application Server.
+
+    The life cycle management of the Edge Application Server can be done with the CAMARA
     "Edge Application Management API" whose definition is in the CAMARA Edge
     Cloud repository (https://github.com/camaraproject/EdgeCloud).
     The Telco Edge Cloud is composed by Edge Cloud Regions that contain
-    Edge Cloude Zones. For a more complete definition of such Telco Edge Cloud
+    Edge Cloud Zones. For a more complete definition of such Telco Edge Cloud
     architecture, please refer to the "Edge Application Management API"
     documentation. A developer can deploy and run applications on an Edge
     Cloud Zone, meaning reduced latency to end users that are nearby, as the
     network path is shorter. A network operator's EdgeCloud may comprise
     multiple Edge Cloud Zones, each in a discrete location to bring latency
-    benefits to end users across a country.\
+    benefits to end users across a country.
+
     The operator can help developers knowing which of the Edge Cloud Zones will
-    bring the optimal performance for a given end user and application\.
-    The Traffic Influence API (TI API) provides the optimal routing from the
-    user Device (e.g. a Smartphone) to the optimal EAS instance in a specific
-    geographical location, installed in an Edge Cloud Zone.\
-    If a Service is offered by Cloud Instances and by Edge Instances, the TI
+    bring the optimal performance for a given end user and application.
+
+    The Traffic Influence API provides the optimal routing from the
+    user Device (e.g. a Smartphone) to the optimal Edge Application Server instance in a specific
+    geographical location, installed in an Edge Cloud Zone.
+
+    If a Service is offered by Cloud Instances and by Edge Instances, the Traffic Influence
     API can be used get the optimal routing of the traffic to the Edge
     Instances, maybe for a set of users. Getting the optimal routing can be
     used to improve latency maybe in combination with other CAMARA APIs such as
     QoD (Quality On Demand). Providing the optimal routing is indeed an
-    important step to get the optimal latency.\
-    If the TI API is used to get the best routing at the Edge for a Device in a
+    important step to get the optimal latency.
+
+    If the Traffic Influence API is used to get the best routing at the Edge for a Device in a
     geographical location and the Device moves to another geographical location,
-    the TI API can be invoked to get the optimal routing in the new geographical
-    location for that Device.\
-    While the goal of the TI API is to optimise the traffic in the mobile
-    network to reach the local instance of the EAS, it is a task of the
-    Application to generate the flow toward the expected EAS Instance.
+    the Traffic Influence API can be invoked to get the optimal routing in the new geographical
+    location for that Device.
+
+    While the goal of the Traffic Influence API is to optimise the traffic in the mobile
+    network to reach the local instance of the Edge Application Server, it is a task of the
+    Application to generate the flow toward the expected Edge Application Server Instance.
     ## Introduction
-    The TI API provides the capability to establish the optimal routing, in
+    The Traffic Influence API provides the capability to establish the optimal routing, in
     terms of latency, in a specific geographical area, between the user Device,
-    e.g. the user’s smartphone, and the optimal EAS instance nearby. If the
-    Device moves in a different geographical location where a more suitable EAS
-    instance is available, the TI API can be invoked again to influence the
+    e.g. the user’s smartphone, and the optimal Edge Application Server instance nearby. If the
+    Device moves in a different geographical location where a more suitable Edge Application Server
+    instance is available, the Traffic Influence API can be invoked again to influence the
     Device connectivity to get the optimal routing also in the new location.
     It is important to notice that the  service data flow is not automatically
-    optimised when the user moves in a specific area, it is a task of the TI API
+    optimised when the user moves in a specific area, it is a task of the Traffic Influence API
     Consumer to detect the changes in the Device location and to invoke the
-    TI API consequently.\
+    Traffic Influence API consequently.
+
     The generic architecture for the Service can foresee some Cloud instances of
-    the Application, one or more Edge Instances of the Application. The TI API
-    Consumer invokes the TI API creating a "TrafficInfluence" resource
-    specifying the desired intent.\
-    The TI API Producer implements the intent specified in the
-    "TrafficInfluence" resource.\
-    While the TI API can be invoked to activate the optimal routing for any
+    the Application, one or more Edge Instances of the Application. The Traffic Influence API
+    Consumer invokes the Traffic Influence API creating a "TrafficInfluence" resource
+    specifying the desired intent.
+
+    The Traffic Influence API Producer implements the intent specified in the
+    "TrafficInfluence" resource.
+
+    While the Traffic Influence API can be invoked to activate the optimal routing for any
     user, it can also be used to request the optimal routing for a specific user
     also specifying, as an option, a source public port and a destination public
-    port and protocol. Invoking the TI API for each user, many
+    port and protocol. Invoking the Traffic Influence API for each user, many
     "TrafficInfluence" resources are created for each user to provide the
-    requested routing for a set of users. If the TI API is invoked to provide
+    requested routing for a set of users. If the Traffic Influence API is invoked to provide
     the optimal routing for any user and later it is required to provide the
     optimal access only for selected users, the previous intent/resource must
-    be deleted.\
+    be deleted.
+
     The same approach is used for the geographical areas where the influence
-    of the traffic must be applied. Invoking the TI API without specifying a
-    geographical area, activates the optimal routing toward the closest EAS
+    of the traffic must be applied. Invoking the Traffic Influence API without specifying a
+    geographical area, activates the optimal routing toward the closest Edge Application Server
     instance in any geographical location. This intent must be deleted if it is
     required to provide the optimal access only in selected areas. Invoking the
-    TI API specifying a geographical area activates the optimal routing only if
+    Traffic Influence API specifying a geographical area activates the optimal routing only if
     the user is in that geographical area. The flow is optimised to reach the
-    EAS instance located closest to that geographical area. In a different
-    geographical area the user will not have the traffic flow optimised.\
-    To activate the optimal routing in selected geographical areas, the TI API
-    must be invoked for each geographical area. Anyway it is importat to
-    understand that the traffic optimization strongly depends on the user's
-    geographical location so it is important for the TI API Consumer to always
-    verify the position of the user invoking the TI API for that user if it
+    Edge Application Server instance located closest to that geographical area. In a different
+    geographical area the user will not have the traffic flow optimised.
+
+    To activate the optimal routing in selected geographical areas, the Traffic Influence API
+    must be invoked for each geographical area. Anyway it is important to
+    understand that the traffic optimisation strongly depends on the user's
+    geographical location so it is important for the Traffic Influence API Consumer to always
+    verify the position of the user invoking the Traffic Influence API for that user if it
     moves changing its location.
     The API API can also be used to optimise a specific traffic flow identified
     by a source port and a destination port and protocol. To optimise the flow
-    from more source ports or destination ports or protocols, the TI API must be
-    invoked many times.\
+    from more source ports or destination ports or protocols, the Traffic Influence API must be
+    invoked many times.
+
     It is important to notice that it is a task of the Client Application to
     use the most adequate means to send the application flow to the right
-    server (EAS), for example using Edge DNS or using the target EAS IP address.
-    The TI API provides back the selected EAS instance identifier from which the
-    Client Application can retrive the destination IP address of its backend
-    server, to properly configure the service data flow.\
-    The TI API can be used to:
+    server (Edge Application Server), for example using Edge DNS or using the target Edge Application Server IP address.
+    The Traffic Influence API provides back the selected Edge Application Server instance identifier from which the
+    Client Application can retrieve the destination IP address of its backed
+    server, to properly configure the service data flow.
+
+    The Traffic Influence API can be used to:
     - optimise the routing when Devices need to consume the service provided
-      by a local EAS Instances.
+      by a local Edge Application Server Instances.
     - affect an already established Device routing when the Device moves
-      among different geographical locations. When the TI API consumer detects
-      a Device has entered a geographical location where an EAS instance is
-      available, it can invoke the TI API to get the optimal routing toward
-      that EAS instance.
+      among different geographical locations. When the Traffic Influence API consumer detects
+      a Device has entered a geographical location where an Edge Application Server instance is
+      available, it can invoke the Traffic Influence API to get the optimal routing toward
+      that Edge Application Server instance.
       If the Device moves to another geographical location, served by another
-      EAS instance, the routing might not be optimal anymore. In the case the
-      Application detects a location change, it can invoke the TI API again to
-      request a new routing optimization toward the new EAS instance.\
+      Edge Application Server instance, the routing might not be optimal any more. In the case the
+      Application detects a location change, it can invoke the Traffic Influence API again to
+      request a new routing optimization toward the new Edge Application Server instance.
     ## Quick Start
-    The TI API is consumed by an Application Function (AF) requesting for the
+    The Traffic Influence API is consumed by an Application Function (AF) requesting for the
     optimal routing, in term of latency, for the traffic flow from a Device
-    toward EAS instances in Edge Cloud Zones.\
-    When the Application (the EAS) is onboarded and deployed in the Edge Cloud
-    Zones, the Application is identified with a unique identifier ("appId").\
+    toward Edge Application Server instances in Edge Cloud Zones.
+
+    When the Application (the Edge Application Server) is onboarded and deployed in the Edge Cloud
+    Zones, the Application is identified with a unique identifier ("appId").
+
     Using the application identifier ("appId") and specifying a Zone or a Region
     the Telco Operator Platform, autonomously identifies the best instance of
-    the EAS toward which routing the traffic flow and configures the Mobile
-    Network accordingly to get the fastest routing.\
+    the Edge Application Server toward which routing the traffic flow and configures the Mobile
+    Network accordingly to get the fastest routing.
+
     If just the application identifier is used, the Telco Operator Platform
-    identifies all the EAS Instances and activates the optimal routing on the
-    Mobile Network.\
+    identifies all the Edge Application Server Instances and activates the optimal routing on the
+    Mobile Network.
+
     If the optimal routing in term of latency should be available just for a set
-    of users, the TI API must be invoked for each user creating a new
+    of users, the Traffic Influence API must be invoked for each user creating a new
     TrafficInfluce resource for each one.
     If the Application offers different services on different interfaces a
     traffic filter based on IP, Port and Protocol can be used. I this way it is
     also possible to redirect different users to different interfaces.
     Here are some possible intents:
-    1) activate the optimal routing for the closest EAS instance: the TI API
+    1) activate the optimal routing for the closest Edge Application Server instance: the Traffic Influence API
     must be invoked with the "appId". The Telco Operator Platform identifies
-    all the EAS instances and activates the optimal routing on the Mobile
-    Network so that the user is connect to the closest EAS insteance.
-    2) activate the optimal routing in a specific Region or Zone: the TI API
+    all the Edge Application Server instances and activates the optimal routing on the Mobile
+    Network so that the user is connect to the closest Edge Application Server instance.
+    2) activate the optimal routing in a specific Region or Zone: the Traffic Influence API
     must be invoked with the "appId" and the Zones and Regions identifiers.
-    3) activate the optimal routing for a user Device: the TI API can  be
+    3) activate the optimal routing for a user Device: the Traffic Influence API can  be
     invoked with a user Device identifier (“Device”). For each user Device,
-    a TI API invocation is required. The optimal routing is provided only for
+    a Traffic Influence API invocation is required. The optimal routing is provided only for
     the requested Devices.
     # Authorization and authentication
     The "Camara Security and Interoperability Profile" provides details of how
     an API consumer requests an access token. Please refer to Identity and
     Consent Management
     (https://github.com/camaraproject/IdentityAndConsentManagement/)
-    for the released version of the profile.\
-    \
+    for the released version of the profile.
+
     The specific authorization flows to be used will be agreed upon during
     the onboarding process, happening between the provider of the application
     consuming the API and the operator's API exposure platform, taking into
     account the declared purpose for accessing the API, whilst also being
-    subject to the prevailing legal framework dictated by local legislation.\
-    \
+    subject to the prevailing legal framework dictated by local legislation.
+
     In cases where personal data is processed by the API and users can
     exercise their rights through mechanisms such as opt-in and/or opt-out,
     the use of three-legged access tokens is mandatory. This ensures that
@@ -160,7 +177,7 @@ info:
     - When a three-legged access token is used however, this optional
     identifier MUST NOT be provided, as the subject will be uniquely
     identified from the access token.
-    \
+
     This approach simplifies API usage for API consumers using a
     three-legged access token to invoke the API by relying on the
     information that is associated with the access token and was
@@ -178,43 +195,46 @@ info:
     this comparison.
     # API Documentation
     ## Details
-    The usage of the TI API is based on the management of a "TrafficInfluence"
-    resource, an object containing the intent requested invoking the TI API and
+    The usage of the Traffic Influence API is based on the management of a "TrafficInfluence"
+    resource, an object containing the intent requested invoking the Traffic Influence API and
     that is implemented by the platform configuring the Mobile Network for the
-    optimal routing toward the EAS instance.\
+    optimal routing toward the Edge Application Server instance.
+
     The "TrafficInfluence" resource can be created (providing the related
     parameters that specify the desired intent), queried, modified and
-    deleted.\
-    The TI API is asynchronous, a notification is available providing
+    deleted.
+
+    The Traffic Influence API is asynchronous, a notification is available providing
     information about the status of the requested resource.
     For an Application (identified by "appId") many "TrafficInfluence" resources
-    can be created, e.g. to add multiple users, regions or zones.\
+    can be created, e.g. to add multiple users, regions or zones.
+
     When an intent is expressed and a resource have been created, if the intent
     must be modified, it is suggested to use the PATCH method
     (/traffic-influeces/{trafficInfluenceID}). Anyway, any other new intent
-    (e.g. for the same device) will override the previous ones.\
-    \
-    Before starting to use the TI API, the developer needs to know about the
-    below specified details:\
-    \
+    (e.g. for the same device) will override the previous ones.
+
+    Before starting to use the Traffic Influence API, the developer needs to know about the
+    below specified details:
+
     **TrafficInfluence:**
     This object represents the resource that carries the requirements from the
-    user to be implemented. The TI API is invoked for the life cycle management
-    of this resource (CRUD). The resource contains the intents from the TI API
+    user to be implemented. The Traffic Influence API is invoked for the life cycle management
+    of this resource (CRUD). The resource contains the intents from the Traffic Influence API
     Consumer. Managing this resource, the developer can specify in which
     geographical location the routing must be applied, toward which application,
-    maybe for a specific set of users or for a limited period of time.\
-    \
+    maybe for a specific set of users or for a limited period of time.
+
     **trafficInfluenceID:**
     Identifier for the Traffic Influence resource. This parameter is returned
-    by the TI API and must be used to update it (e.g., adding a Device or
+    by the Traffic Influence API and must be used to update it (e.g., adding a Device or
     deleting it). A different Traffic Influence resource must be created for
     any Device or Zone or Region. All these resources are related to an
-    Application identified by "appId".\
-    \
+    Application identified by "appId".
+
     **apiConsumerId:**
-    Unique identifier for the TI API Consumer.\
-    \
+    Unique identifier for the Traffic Influence API Consumer.
+
     **edgeCloudRegion:**
     The Developer can specify in which geographical area he requires the optimal
     routing toward application instances running there. An Edge Cloud Region is
@@ -224,30 +244,32 @@ info:
     An Edge Cloud Region typically contains one or multiple Edge Cloud Zones.
     The Edge Cloud Region name is provided by the Telco Operator and can also be
     used or retrieved with other CAMARA APIs (e.g. “Edge Application Management
-    API”). To add more regions the TI API must be invoked (POST) for each
+    API”). To add more regions the Traffic Influence API must be invoked (POST) for each
     "region". If in a "region" there are many Application instances active in
-    different "zones", the TI API can be invoked to configure the optimal
+    different "zones", the Traffic Influence API can be invoked to configure the optimal
     routing for all the instances with just one API call specifying the
-    "region".\
+    "region".
+
     If just the Application instances in some Edge Cloud Zone must be affected,
-    the TI API can be invoked for the zones of interest, without specifying
+    the Traffic Influence API can be invoked for the zones of interest, without specifying
     the "region" in the API call. If just some specific Application instance
     must be affected, it is not required to specify any "region" or "zone",
-    and the parameter "appInstanceId" can be used.\
-    \
+    and the parameter "appInstanceId" can be used.
+
     **edgeCloudZoneId:**
     An Edge Cloud Zone is the lowest level of abstraction exposed to an
     Application Provider who wants to deploy an Application on Edge Cloud.
-    Edge Cloud Zones exists within a Edge Cloud Region.\
-    To add more "zones" the TI API must be invoked (POST) for each "zone".\
-    \
+    Edge Cloud Zones exists within a Edge Cloud Region.
+
+    To add more "zones" the Traffic Influence API must be invoked (POST) for each "zone".
+
     **appId:**
     A globally unique identifier associated with the application. This
     identifier is provided during the application onboarding process.
     To influence the traffic toward a specific Application. It is the Operator
     Platform that detects the appropriate Application instance in the selected
-    "region" or "zone".\
-    \
+    "region" or "zone".
+
     **appInstanceId:**
     A globally unique identifier generated by the Operator Platform to identify
     a specific instance of the Application in a specific zone. To influence a
@@ -255,25 +277,25 @@ info:
     Application instance must be affected, it is not required to specify any
     "region" or "zone", the parameter "appInstanceId" can be used.
     The value for appInstanceId can be retrived using the CAMARA API
-    Edge Application Management, included in the Edge Cloud API Family.\
-    \
+    Edge Application Management, included in the Edge Cloud API Family.
+
     **sourceTrafficFilters:**
     The traffic can be from a specific public port in the device. If this
     parameter is used, the influenced flow is from the public port defined in
-    "sourceTrafficFilters" rathar than the public port specified in "Device"\
-    \
+    "sourceTrafficFilters" rathar than the public port specified in "Device"
+
     **destinationTrafficFilters:**
     The Application can expose different service on different interfaces,
     identified by port and protocol, with this parameter it is possible to
     route the traffic toward a specific port and protocol exposed by the
-    Application.\
-    \
+    Application.
+
     **Device:**
     An user Device can be provided as an input. The Device can be identified by
     the phone number (phoneNumber) or by its IP Address (Ipv4Address,
     Ipv6Address) also specifying a Port. For IP address both the private (as
     seen from inside the Device) and the public (as seen over Internet by a
-    server connected to the Device) can be used. To add more users the TI API
+    server connected to the Device) can be used. To add more users the Traffic Influence API
     must be invoked (POST) of each user Device. New "TrafficInfluence"
     resources are created (with different "trafficInfluenceID"). The routing
     toward the selected Application instance is only applied for provided user
@@ -281,20 +303,19 @@ info:
     be also used to identify the flow to be influenced. If the flow to be
     influenced is from a different public port, "sourceTrafficFilters" can be
     used. If more than one Device identifier is provided only one will be used
-    by the TI API to perform the netwrok optimization. The one used is
-    returned in the notification callback.\
-    \
+    by the Traffic Influence API to perform the network optimization. The one used is
+    returned in the notification callback.
+
     **Notification:**
     Developers can specify a callback URL on which notifications
     regarding the requested intent can be received. The notification will be
     sent as a CloudEvent compliant message. For example to be notified when the
     requested optimal routing is active. It is also provided back the
-    identificator for the selected EAS instace ("selected_appInstanceId")
-    from which the Client Application can retrive the destination IP address of
-    its backend server, to properly configure the service data flow. This
+    identificator for the selected Edge Application Server instance ("selected_appInstanceId")
+    from which the Client Application can retrieve the destination IP address of
+    its back-end server, to properly configure the service data flow. This
     information can be retrived using the CAMARA API: [Edge
-    Application Management](https://github.com/camaraproject/EdgeCloud/blob\
-    /main/code/API_definitions/Edge-Application-Management.yaml).
+    Application Management](https://github.com/camaraproject/EdgeCloud/blob/main/code/API_definitions/Edge-Application-Management.yaml).
     ## Additional CAMARA error responses
     The list of error codes in this API specification is not exhaustive.
     Therefore the API specification may not document some non-mandatory error
@@ -729,7 +750,7 @@ components:
            (e.g., modify or delete the TrafficInfluence resource).
         apiConsumerId:
           type: string
-          description: Unique Identifier of the TI API Consumer.
+          description: Unique Identifier of the Traffic Influence API Consumer.
         appId:
           $ref: '#/components/schemas/AppId'
         appInstanceId:
@@ -768,7 +789,7 @@ components:
                 - $ref: "#/components/schemas/Port"
         destinationTrafficFilters:
           description: Identifies the destination IP packet filters. To be
-           used when it is needed a traffic flow towards a specific EAS
+           used when it is needed a traffic flow towards a specific Edge Application Server
            interface identified by a protocol and a port.  Also the Protocol
            (e.g. TCP or UDP) can be specified.
           type: object
@@ -874,8 +895,8 @@ components:
       description: Notification channel for changes in the TrafficInfluence
        resource. It returns back the TrafficInfluence resource with the
        updated status ("state"). It provides back the identifiers
-       of the selected EAS instances. If more than one Device identifier was
-       provided, just the one used by the TI API is returned.
+       of the selected Edge Application Server instances. If more than one Device identifier was
+       provided, just the one used by the Traffic Influence API is returned.
       allOf:
         - $ref: "#/components/schemas/PostTrafficInfluenceDevice"
       properties:
