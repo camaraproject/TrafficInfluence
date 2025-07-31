@@ -276,13 +276,13 @@ info:
     traffic toward a specific Application instance. If just some specific
     Application instance must be affected, it is not required to specify any
     "region" or "zone", the parameter "appInstanceId" can be used.
-    The value for appInstanceId can be retrived using the CAMARA API
+    The value for appInstanceId can be retrieved using the CAMARA API
     Edge Application Management, included in the Edge Cloud API Family.
 
     **sourceTrafficFilters:**
     The traffic can be from a specific public port in the device. If this
     parameter is used, the influenced flow is from the public port defined in
-    "sourceTrafficFilters" rathar than the public port specified in "Device"
+    "sourceTrafficFilters" rather than the public port specified in "Device"
 
     **destinationTrafficFilters:**
     The Application can expose different service on different interfaces,
@@ -316,7 +316,7 @@ info:
     its back-end server, to properly configure the service data flow. This
     information can be retrived using the CAMARA API: [Edge
     Application Management](https://github.com/camaraproject/EdgeCloud/blob/main/code/API_definitions/Edge-Application-Management.yaml).
-    ## Additional CAMARA error responses
+    # Additional CAMARA error responses
     The list of error codes in this API specification is not exhaustive.
     Therefore the API specification may not document some non-mandatory error
     statuses as indicated in `CAMARA API Design Guide`.
