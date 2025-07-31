@@ -54,8 +54,7 @@ Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation postTrafficInflu
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set accordingly to the result
-
-    And if the device in the autorization token included multiple identifier, only the one used by the network is returned
+    And if the device in the authorization token included multiple identifier, only the one used by the network is returned
 
   # Optional valid parameters
 
