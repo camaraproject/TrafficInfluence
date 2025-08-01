@@ -1,6 +1,6 @@
 # API Readiness Checklist
 
-Checklist for traffic-influence in v0.10.0-rc.1 in r.1.2
+Checklist for traffic-influence v0.10.0-rc.1 in r.1.2
 
 | Nr | API release assets  | alpha | release-candidate |  initial<br>public | stable<br> public | Status | Reference information |
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|:----|
