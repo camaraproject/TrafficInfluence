@@ -1,21 +1,24 @@
 # API Readiness Checklist
 
-Checklist for api-name api-version in v0.9.0-alpha.1 in r.1.1
+Checklist for traffic-influence v0.10.0-rc.1 in r.1.2
 
 | Nr | API release assets  | alpha | release-candidate |  initial<br>public | stable<br> public | Status | Reference information |
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|:----|
 |  1 | API definition                               |   M   |         M         |    M    |    M   |   Y  | [link](/code/API_definitions/traffic-influence.yaml) |
-|  2 | Design guidelines from Commonalities applied |   O   |         M         |    M    |    M   |   Y  | [r3.1](https://github.com/camaraproject/Commonalities/releases/tag/r3.1) |
-|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   |   Y  | [r3.1](https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r3.1) |
-|  4 | API versioning convention applied            |   M   |         M         |    M    |    M   |   Y  | v0.9.0-alpha.1 |
+|  2 | Design guidelines from Commonalities applied |   O   |         M         |    M    |    M   |   Y  | [r3.2](https://github.com/camaraproject/Commonalities/releases/tag/r3.2) |
+|  3 | Guidelines from ICM applied                  |   O   |         M         |    M    |    M   |   Y  | [r3.2](https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r3.2) |
+|  4 | API versioning convention applied            |   M   |         M         |    M    |    M   |   Y  | v0.10.0-rc.1 |
 |  5 | API documentation                            |   M   |         M         |    M    |    M   |   Y  | inline in YAML |
 |  6 | User stories                                 |   O   |         O         |    O    |    M   |   Y  | [link](/documentation/API_documentation/traffic-influence-user-story-use-case-1.md) |
 |  7 | Basic API test cases & documentation         |   O   |         M         |    M    |    M   |   Y  | [Device](/code/Test_definitions/traffic-influence-device-test.feature), [Every User](/code/Test_definitions/traffic-influence-test.feature) |
 |  8 | Enhanced API test cases & documentation      |   O   |         O         |    O    |    M   |   N  |  |
 |  9 | Test result statement                        |   O   |         O         |    O    |    M   |   N  |      |
-| 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |   Y  | r1.1 |
+| 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |   Y  | r1.2 |
 | 11 | Change log updated                           |   M   |         M         |    M    |    M   |   Y  | [link](/CHANGELOG.md) |
 | 12 | Previous public-release was certified        |   O   |         O         |    O    |    M   |   N  |      |
+| 13 | API description (for marketing)              |   O   |         O         |    M    |    M   |   Y  | [wiki link](https://lf-camaraproject.atlassian.net/wiki/x/d4JlBQ) |
+
+
 
 To fill the checklist:
 - in the line above the table, replace the api-name, api-version and the rx.y by their actual values for the current API version and release.
