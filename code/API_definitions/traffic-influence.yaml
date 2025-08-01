@@ -6,7 +6,7 @@ openapi: 3.0.3
 info:
   title: Traffic Influence
   description: |
-    ## Overview
+    # Overview
     The reference scenario foresees a Service, composed by one or more Service
     Producers deployed in different geographical locations in a distributed
     Telco Edge Cloud. The Service Producer, deployed at the Edge, is referred
@@ -46,7 +46,7 @@ info:
     While the goal of the Traffic Influence API is to optimise the traffic in the mobile
     network to reach the local instance of the Edge Application Server, it is a task of the
     Application to generate the flow toward the expected Edge Application Server Instance.
-    ## Introduction
+    # Introduction
     The Traffic Influence API provides the capability to establish the optimal routing, in
     terms of latency, in a specific geographical area, between the user Device,
     e.g. the user’s smartphone, and the optimal Edge Application Server instance nearby. If the
@@ -150,51 +150,7 @@ info:
     invoked with a user Device identifier (“Device”). For each user Device,
     a Traffic Influence API invocation is required. The optimal routing is provided only for
     the requested Devices.
-    # Authorization and authentication
-    The "Camara Security and Interoperability Profile" provides details of how
-    an API consumer requests an access token. Please refer to Identity and
-    Consent Management
-    (https://github.com/camaraproject/IdentityAndConsentManagement/)
-    for the released version of the profile.
-
-    The specific authorization flows to be used will be agreed upon during
-    the onboarding process, happening between the provider of the application
-    consuming the API and the operator's API exposure platform, taking into
-    account the declared purpose for accessing the API, whilst also being
-    subject to the prevailing legal framework dictated by local legislation.
-
-    In cases where personal data is processed by the API and users can
-    exercise their rights through mechanisms such as opt-in and/or opt-out,
-    the use of three-legged access tokens is mandatory. This ensures that
-    the API remains in compliance with privacy regulations, upholding the
-    principles of transparency and user-centric privacy-by-design.
-    # Identifying the phone number from the access token
-    This API optionally requires the API consumer to identify a phone number
-    as the subject of the API as follows:
-    - When the API is invoked using a two-legged access token, the subject
-    will be identified from the optional `device` object field, which
-    therefore MUST be provided.
-    - When a three-legged access token is used however, this optional
-    identifier MUST NOT be provided, as the subject will be uniquely
-    identified from the access token.
-
-    This approach simplifies API usage for API consumers using a
-    three-legged access token to invoke the API by relying on the
-    information that is associated with the access token and was
-    identified during the authentication process.
-    ## Error handling:
-    - If the subject cannot be identified from the access token and the
-    optional `device` object field is not included in the request, then
-    the server will return an error with the
-    `422 MISSING_IDENTIFIER` error code.
-    - If the subject can be identified from the access token and the
-    optional `device` object field is also included in the request, then
-    the server will return an error with the `422 UNNECESSARY_IDENTIFIER`
-    error code. This will be the case even if the same device is
-    identified by these two methods, as the server is unable to make
-    this comparison.
     # API Documentation
-    ## Details
     The usage of the Traffic Influence API is based on the management of a "TrafficInfluence"
     resource, an object containing the intent requested invoking the Traffic Influence API and
     that is implemented by the platform configuring the Mobile Network for the
@@ -316,6 +272,49 @@ info:
     its back-end server, to properly configure the service data flow. This
     information can be retrived using the CAMARA API: [Edge
     Application Management](https://github.com/camaraproject/EdgeCloud/blob/main/code/API_definitions/Edge-Application-Management.yaml).
+    # Authorization and authentication
+    The "Camara Security and Interoperability Profile" provides details of how
+    an API consumer requests an access token. Please refer to Identity and
+    Consent Management
+    (https://github.com/camaraproject/IdentityAndConsentManagement/)
+    for the released version of the profile.
+
+    The specific authorization flows to be used will be agreed upon during
+    the onboarding process, happening between the provider of the application
+    consuming the API and the operator's API exposure platform, taking into
+    account the declared purpose for accessing the API, whilst also being
+    subject to the prevailing legal framework dictated by local legislation.
+
+    In cases where personal data is processed by the API and users can
+    exercise their rights through mechanisms such as opt-in and/or opt-out,
+    the use of three-legged access tokens is mandatory. This ensures that
+    the API remains in compliance with privacy regulations, upholding the
+    principles of transparency and user-centric privacy-by-design.
+    # Identifying the phone number from the access token
+    This API optionally requires the API consumer to identify a phone number
+    as the subject of the API as follows:
+    - When the API is invoked using a two-legged access token, the subject
+    will be identified from the optional `device` object field, which
+    therefore MUST be provided.
+    - When a three-legged access token is used however, this optional
+    identifier MUST NOT be provided, as the subject will be uniquely
+    identified from the access token.
+
+    This approach simplifies API usage for API consumers using a
+    three-legged access token to invoke the API by relying on the
+    information that is associated with the access token and was
+    identified during the authentication process.
+    ## Error handling:
+    - If the subject cannot be identified from the access token and the
+    optional `device` object field is not included in the request, then
+    the server will return an error with the
+    `422 MISSING_IDENTIFIER` error code.
+    - If the subject can be identified from the access token and the
+    optional `device` object field is also included in the request, then
+    the server will return an error with the `422 UNNECESSARY_IDENTIFIER`
+    error code. This will be the case even if the same device is
+    identified by these two methods, as the server is unable to make
+    this comparison.
     # Additional CAMARA error responses
     The list of error codes in this API specification is not exhaustive.
     Therefore the API specification may not document some non-mandatory error
@@ -330,7 +329,7 @@ info:
     error response if it is explicitly documented in the API.
     # FAQ's
     (FAQs will be added in a later version of the documentation)
-  version: 0.10.0-rc.1
+  version: wip
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -342,7 +341,7 @@ externalDocs:
 #                                     Servers                              #
 ############################################################################
 servers:
-  - url: "{apiRoot}/traffic-influence/v0.10rc1"
+  - url: "{apiRoot}/traffic-influence/vwip"
     variables:
       apiRoot:
         default: http://localhost:9091
