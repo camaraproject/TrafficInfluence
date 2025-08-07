@@ -1,4 +1,4 @@
-Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation postTrafficInfluence and patchTrafficInfluence and getAllTrafficInfluences and deleteTrafficInfluence
+Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and patchTrafficInfluence and getAllTrafficInfluences and deleteTrafficInfluence
   # Input to be provided by the implementation to the tester
   #
   # Implementation indications:
@@ -7,7 +7,7 @@ Feature: CAMARA Traffic Influence API, v0.10.0-rc.1 - Operation postTrafficInflu
   # * The optimal routing must be activated for any device
   #
   Background: Common traffic-influences setup
-    Given the path "/traffic-influences"
+    Given the path "/traffic-influence/vwip/traffic-influences"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
