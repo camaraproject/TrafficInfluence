@@ -26,7 +26,11 @@ Sandbox API Repository to describe, develop, document, and test the TrafficInflu
 ## Release Information
 Note: Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
 
-* **NEW**: Pre-release [r1.2](https://github.com/camaraproject/TrafficInfluence/releases/tag/r1.2). with traffic-influence v0.10.0-rc.1 is available.
+* The latest public release is [r1.3](https://github.com/camaraproject/TrafficInfluence/releases/tag/r1.3) with traffic-influence v0.10.0
+- API definition **with inline documentation**:
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.3/code/API_definitions/traffic-influence.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.3/code/API_definitions/traffic-influence.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.3/code/API_definitions/traffic-influence.yaml)
 
 **Previous releases of the TrafficInfluence API available in [EdgeCloud](https://github.com/camaraproject/EdgeCloud).**
 
