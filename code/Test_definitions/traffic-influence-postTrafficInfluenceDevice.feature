@@ -7,7 +7,7 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluenceDevi
   # * The optimal routing for a device must be activated
   #
   # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml, version wip
-  
+
   Background: Common traffic-influence-devices setup
     Given the path "/traffic-influence/vwip/traffic-influence-devices"
     And the header "Content-Type" is set to "application/json"
@@ -100,3 +100,4 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluenceDevi
     And the callback carries the information defined in "/components/schemas/CloudEvent" with the parameter ("$.state") set accordingly to the result
 
     And if the device in the authorization token included multiple identifier, only the one used by the network is returned
+
