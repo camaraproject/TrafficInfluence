@@ -1289,18 +1289,21 @@ components:
           type: string
           example: OK
     ErrorInfo:
-      description: Information in case of error
       type: object
       required:
-        - code
         - message
+        - status
+        - code
       properties:
-        code:
-          type: string
-          description: Code given to this error
         message:
           type: string
-          description: Detailed error description
+          description: A human-readable description of what the event represents
+        status:
+          type: integer
+          description: HTTP response status code
+        code:
+          type: string
+          description: A human-readable code to describe the error
   responses:
     ResNotFound:
       description: The specified resource was not found
