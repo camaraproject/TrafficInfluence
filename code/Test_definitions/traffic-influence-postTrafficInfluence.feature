@@ -103,6 +103,4 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and
     And within a limited period of time I should receive a callback at "/components/schemas/NotificationSink/sink"
     And the callback body is compliant with the OAS schema at "/components/callbacks/onTrafficInfluenceChanged" with "x-correlator" having the same value as the request header "x-correlator"
     And the callback carries the information defined in "/components/schemas/CloudEvent"
-
     And "/components/schemas/CloudEvent" in the callback should contain the parameter ("$.state") set according to the result
-
