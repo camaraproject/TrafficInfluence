@@ -1252,7 +1252,7 @@ components:
           than one device identifier is specified, as only one of those device
           identifiers is allowed in the response.
         If the API consumer provides more than one device identifier in their
-        request, the API provider must return a single identifier which is the
+        request, and this schema is included in the response definition, the API provider MUST use it to  return a single identifier which is the
         one they are using to fulfil the request, even if the identifiers do not
         match the same device. API provider does not perform any logic to
         validate/correlate that the indicated device identifiers match the same
@@ -1289,18 +1289,21 @@ components:
           type: string
           example: OK
     ErrorInfo:
-      description: Information in case of error
       type: object
       required:
-        - code
         - message
+        - status
+        - code
       properties:
-        code:
-          type: string
-          description: Code given to this error
         message:
           type: string
-          description: Detailed error description
+          description: A human-readable description of what the event represents
+        status:
+          type: integer
+          description: HTTP response status code
+        code:
+          type: string
+          description: A human-readable code to describe the error
   responses:
     ResNotFound:
       description: The specified resource was not found

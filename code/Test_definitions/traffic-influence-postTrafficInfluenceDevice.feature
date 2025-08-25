@@ -6,6 +6,8 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluenceDevi
   # Testing assets:
   # * The optimal routing for a device must be activated
   #
+  # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml, version wip
+
   Background: Common traffic-influence-devices setup
     Given the path "/traffic-influence/vwip/traffic-influence-devices"
     And the header "Content-Type" is set to "application/json"
