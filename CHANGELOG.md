@@ -59,7 +59,7 @@ The traffic can be influenced even when the user device moves to a different geo
 
 ### Removed
 
-**Full Changelog**: https://github.com/camaraproject/TrafficInfluence/commit/r1.3
+**Full Changelog**: https://github.com/camaraproject/TrafficInfluence/commits/r1.3
 
 # r1.2
 
