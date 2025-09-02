@@ -20,7 +20,7 @@ The below sections record the changes for each API version in each release as fo
 
 ## Release Notes
 
-This pre-release contains the definition and documentation of:
+This public release contains the definition and documentation of:
 * traffic-influence v0.10.0
 
 The API definition(s) are based on
