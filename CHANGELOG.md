@@ -29,7 +29,7 @@ The API definition(s) are based on
 
 ## traffic-influence v0.10.0
 This is a public release for the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
-The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
+The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application.
 
 - API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.3/code/API_definitions/traffic-influence.yaml)
