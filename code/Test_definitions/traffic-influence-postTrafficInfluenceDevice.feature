@@ -6,7 +6,7 @@ Feature: CAMARA Traffic Influence API, v0.10.0 - Operation postTrafficInfluenceD
   # Testing assets:
   # * The optimal routing for a device must be activated
   #
-  # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml, version 0.10.0
+  # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml
 
   Background: Common traffic-influence-devices setup
     Given the path "/traffic-influence/v0.10/traffic-influence-devices"
