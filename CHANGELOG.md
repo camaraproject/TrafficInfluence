@@ -40,6 +40,7 @@ The traffic can be influenced even when the user device moves to a different geo
 
 - The release is suitable for implementers, but it is not recommended to use the API with customers in productive environments
 - The release scope is defined here: https://github.com/camaraproject/TrafficInfluence/issues/14
+- This is the first public release of the API, the modification reported below ("Changed" and "Fixed" sections) are with respect to v0.10.0-rc.1 in r1.2.
 
 ### Added
 * Support for the following use cases: https://github.com/camaraproject/TrafficInfluence/discussions/15
@@ -64,7 +65,7 @@ The traffic can be influenced even when the user device moves to a different geo
 
 ## Release Notes
 
-This pre-release contains the definition and documentation of:
+This release contains the definition and documentation of:
 * traffic-influence v0.10.0-rc.1
 
 The API definition(s) are based on
