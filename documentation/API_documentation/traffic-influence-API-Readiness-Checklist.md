@@ -10,7 +10,7 @@ Checklist for traffic-influence v0.10.0-rc.1 in r.1.2
 |  4 | API versioning convention applied            |   M   |         M         |    M    |    M   |   Y  | v0.10.0-rc.1 |
 |  5 | API documentation                            |   M   |         M         |    M    |    M   |   Y  | inline in YAML |
 |  6 | User stories                                 |   O   |         O         |    O    |    M   |   Y  | [link](/documentation/API_documentation/traffic-influence-user-story-use-case-1.md) |
-|  7 | Basic API test cases & documentation         |   O   |         M         |    M    |    M   |   Y  | [Device](/code/Test_definitions/traffic-influence-device-test.feature), [Every User](/code/Test_definitions/traffic-influence-test.feature) |
+|  7 | Basic API test cases & documentation         |   O   |         M         |    M    |    M   |   Y  | [Device](/code/Test_definitions/traffic-influence-postTrafficInfluenceDevice.feature), [Every User](/code/Test_definitions/traffic-influence-postTrafficInfluence.feature) |
 |  8 | Enhanced API test cases & documentation      |   O   |         O         |    O    |    M   |   N  |  |
 |  9 | Test result statement                        |   O   |         O         |    O    |    M   |   N  |      |
 | 10 | API release numbering convention applied     |   M   |         M         |    M    |    M   |   Y  | r1.2 |
