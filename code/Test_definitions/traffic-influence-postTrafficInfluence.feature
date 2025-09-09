@@ -6,7 +6,7 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and
   # Testing assets:
   # * The optimal routing must be activated for any device
   #
-  # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml, version wip
+  # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml
 
   Background: Common traffic-influences setup
     Given the path "/traffic-influence/vwip/traffic-influences"
@@ -22,7 +22,7 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and
   # Mandatory valid parameters for POST
   @TI_Resource_LCM_Mandatory_Parameters_Valid_CREATE
   Scenario: Create Traffic Influence (TI) Resource with mandatory parameters
-    Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
+    Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.appId")
     And the request body is set to a valid request body
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource and the optimal routing will be activated for any user on any location
@@ -42,8 +42,8 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and
   # Optional valid parameters for POST
   @TI_Resource_LCM_Optional_Parameters_Valid_CREATE
   Scenario: Create Traffic Influence (TI) Resource with also optional parameters
-    Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.applicationId")
-    And any other optional parameters (e.g. "$.instanceId", "$.zone" etc.)
+    Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.appId")
+    And any other optional parameters (e.g. "$.AppInstanceId", "$.zone" etc.)
     And the request body is set to a valid request body
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource
