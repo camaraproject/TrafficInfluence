@@ -47,9 +47,9 @@ The traffic can be influenced even when the user device moves to a different geo
     
 ### Changed
 * x-correlator update: https://github.com/camaraproject/TrafficInfluence/pull/49
-* Alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53
+* Alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53 and https://github.com/camaraproject/TrafficInfluence/pull/73
 * Updated the name of the test file to be coherent with the operationId: https://github.com/camaraproject/TrafficInfluence/pull/53
-* ErrorInfo scheme updated: https://github.com/camaraproject/TrafficInfluence/pull/65
+* ErrorInfo scheme updated: https://github.com/camaraproject/TrafficInfluence/pull/65 and https://github.com/camaraproject/TrafficInfluence/pull/73
 
 ### Fixed
 * Backslash \ is not standard markdown syntax for paragraph: https://github.com/camaraproject/TrafficInfluence/pull/53
