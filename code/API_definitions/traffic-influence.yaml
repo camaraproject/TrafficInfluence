@@ -12,8 +12,8 @@ info:
     Telco Edge Cloud. The Service Producer, deployed at the Edge, is referred
     as Edge Application Server.
 
-    The life cycle management of the Edge Application Server can be done with the CAMARA
-    "Edge Application Management API" whose definition is in the CAMARA Edge
+    The life cycle management of the Edge Application Server can be done with APIs, for example the CAMARA
+    "Edge Application Management API" under definition in the CAMARA Edge
     Cloud repository (https://github.com/camaraproject/EdgeCloud).
     The Telco Edge Cloud is composed by Edge Cloud Regions that contain
     Edge Cloud Zones. For a more complete definition of such Telco Edge Cloud
@@ -267,11 +267,10 @@ info:
     regarding the requested intent can be received. The notification will be
     sent as a CloudEvent compliant message. For example to be notified when the
     requested optimal routing is active. It is also provided back the
-    identificator for the selected Edge Application Server instance ("selected_appInstanceId")
+    identifier for the selected Edge Application Server instance ("selected_appInstanceId")
     from which the Client Application can retrieve the destination IP address of
     its back-end server, to properly configure the service data flow. This
-    information can be retrived using the CAMARA API: [Edge
-    Application Management](https://github.com/camaraproject/EdgeCloud/blob/main/code/API_definitions/Edge-Application-Management.yaml).
+    information can be retrieved using the APIs, for example the Edge Application Management under development in CAMARA.
     # Authorization and authentication
     The "Camara Security and Interoperability Profile" provides details of how
     an API consumer requests an access token. Please refer to Identity and
@@ -397,8 +396,6 @@ paths:
           $ref: "#/components/responses/Generic401"
         "403":
           $ref: "#/components/responses/Generic403"
-        "409":
-          $ref: "#/components/responses/Generic409"
         "429":
           $ref: "#/components/responses/Generic429"
     post:
@@ -507,6 +504,8 @@ paths:
           $ref: "#/components/responses/Generic403"
         "404":
           $ref: '#/components/responses/Generic404'
+        "409":
+          $ref: "#/components/responses/Generic409"
         "422":
           $ref: "#/components/responses/Generic422"
         "429":
@@ -568,7 +567,7 @@ paths:
        parameter can not be modified.
       description: The resource identified by the trafficInfluenceID value can
        be modified. Before the PATCH can be invoked the status (state) of the
-       resource must be "active". If not an errore code 409 (DENIED_WAIT) is
+       resource must be "active". If not an error code 409 (DENIED_WAIT) is
        returned.
       operationId: patchTrafficInfluence
       parameters:
@@ -630,7 +629,11 @@ paths:
         - $ref: '#/components/parameters/x-correlator'
       responses:
         '202':
-          $ref: '#/components/responses/OkDeletionInProgress'
+          description: Deletion in progress.
+           resources.
+          headers:
+            x-correlator:
+              $ref: '#/components/headers/x-correlator'
         "400":
           $ref: "#/components/responses/Generic400"
         "401":
@@ -639,6 +642,8 @@ paths:
           $ref: "#/components/responses/Generic403"
         "404":
           $ref: '#/components/responses/Generic404'
+        "409":
+          $ref: "#/components/responses/Generic409"
         "422":
           $ref: "#/components/responses/Generic422"
         "429":
@@ -703,7 +708,7 @@ components:
                   $ref: '#/components/schemas/CloudEvent'
                 example:
                   id: "string"
-                  source: "https://notificationSendServer12.supertelco.com"
+                  source: "https://notificationSendServer12.example.com"
                   specversion: "1.0"
                   datacontenttype: "application/json"
                   type: "org.camaraproject.traffic-influence.v1.traffic-influence-change"
@@ -768,7 +773,7 @@ components:
            When the DELETE method is invoked the state is
            'deletion in progress'.
            After the resource is deleted (as a consequence of the previous
-           invokation of the DELETE method) the state is 'deleted'.
+           invocation of the DELETE method) the state is 'deleted'.
           enum:
             - 'ordered'
             - 'created'
@@ -805,7 +810,7 @@ components:
         - apiConsumerId
         - appId
     PostTrafficInfluence:
-      description: iherits from TrafficInfluence restricting the access
+      description: inherits from TrafficInfluence restricting the access
         (readonly) to "trafficInfluenceID" and "state", to be used by the API
         Consumer to create a TrafficInfluece resource for any user.
       allOf:
@@ -818,8 +823,8 @@ components:
         subscriptionRequest:
           $ref: '#/components/schemas/SubscriptionRequest'
     PostTrafficInfluenceDevice:
-      description: iherits from TrafficInfluence restricting the access
-        (readonly) to "trafficInfluenceID" and "state", to be used by the API
+      description: inherits from TrafficInfluence restricting the access
+        (read-only) to "trafficInfluenceID" and "state", to be used by the API
         Consumer to create a TrafficInfluece resource for a specific user.
       allOf:
         - $ref: "#/components/schemas/TrafficInfluence"
@@ -928,7 +933,7 @@ components:
         - Application-specific identifier:
           * /cloudevents/spec/pull/123
           * 1-555-123-4567
-      example: "https://notificationSendServer12.supertelco.com"
+      example: "https://notificationSendServer12.example.com"
     SubscriptionRequest:
       description: The request for creating a event-type event subscription
       type: object
@@ -1229,7 +1234,7 @@ components:
       minimum: 0
       maximum: 65535
     Protocol:
-      description: The protocol for the influeced flow. It can be specified and
+      description: The protocol for the influenced flow. It can be specified and
        it is identified by a string according to the column “Keyword” as defined
        by IANA (https://www.iana.org/assignments/protocol-numbers/\
        protocol-numbers.xhtml), e.g. UDP or TCP.
@@ -1271,88 +1276,28 @@ components:
       type: string
       format: uuid
       example: "6B29FC40-CA47-1067-B31D-00DD010662DA"
-      description: A globally unique identifier associated with theapplication.
+      description: A globally unique identifier associated with the application.
        OP generates this identifier when the application is submitted over NBI.
     ########################################################################
     #                                     Responses                        #
     ########################################################################
-    ErrResponse:
-      description: Responce feedback in case of errors
-      type: object
-      properties:
-        status:
-          description: status for the error
-          type: string
-          example: OK
-        message:
-          description: additional message for the error
-          type: string
-          example: OK
     ErrorInfo:
       type: object
       required:
-        - message
         - status
         - code
+        - message
       properties:
-        message:
-          type: string
-          description: A human-readable description of what the event represents
         status:
           type: integer
           description: HTTP response status code
         code:
           type: string
           description: A human-readable code to describe the error
+        message:
+          type: string
+          description: A human-readable description of what the event represents
   responses:
-    ResNotFound:
-      description: The specified resource was not found
-      headers:
-        x-correlator:
-          $ref: '#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrResponse'
-          example:
-            status: ERROR
-            message: Resource not found
-    GenericError:
-      description: An unknow error has occurred
-      headers:
-        x-correlator:
-          $ref: '#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrResponse'
-          example:
-            status: ERROR
-            message: Generic error
-    BackendConnTimeout:
-      description: Connection timeout towards backend service has occurred
-      headers:
-        x-correlator:
-          $ref: '#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrResponse'
-          example:
-            status: ERROR
-            message: Backend connection timeout
-    OkDeletionInProgress:
-      description: The resource delation request has been accepted
-      headers:
-        x-correlator:
-          $ref: '#/components/headers/x-correlator'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrResponse'
-          example:
-            status: OK
-            message: Accepted
     Generic400:
       description: Bad Request
       headers:
@@ -1371,6 +1316,7 @@ components:
                   code:
                     enum:
                       - INVALID_ARGUMENT
+                      - OUT_OF_RANGE
           examples:
             GENERIC_400_INVALID_ARGUMENT:
               description: Invalid Argument. Generic Syntax Exception
@@ -1379,6 +1325,13 @@ components:
                 code: INVALID_ARGUMENT
                 message: Client specified an invalid argument, request body or
                   query param.
+            GENERIC_400_OUT_OF_RANGE:
+              description: Out of Range. Specific Syntax Exception used when a
+                given field has has an unsupported value.
+              value:
+                status: 400
+                code: OUT_OF_RANGE
+                message: Client specified an invalid range.
     Generic401:
       description: Unauthorized
       headers:
@@ -1473,7 +1426,19 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ErrorInfo"
+            allOf:
+              - $ref: "#/components/schemas/ErrorInfo"
+              - type: object
+                properties:
+                  status:
+                    enum:
+                      - 409
+                  code:
+                    enum:
+                      - ABORTED
+                      - ALREADY_EXISTS
+                      - CONFLICT
+                      - DENIED_WAIT
           examples:
             GENERIC_409_ABORTED:
               description: Concurreny of processes of the same nature/scope
@@ -1499,7 +1464,7 @@ components:
               value:
                 status: 409
                 code: DENIED_WAIT
-                message: It is not possibile to modify the Traffic Influence
+                message: It is not possible to modify the Traffic Influence
                  resource because it is still under provisioning. The resource
                  can be modified when it is fully implemented and activated.
                  Please wait for the resource status (state) to be "active"
