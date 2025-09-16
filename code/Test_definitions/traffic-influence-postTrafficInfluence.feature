@@ -43,7 +43,7 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and
   @TI_Resource_LCM_Optional_Parameters_Valid_CREATE
   Scenario: Create Traffic Influence (TI) Resource with also optional parameters
     Given the request body property with mandatory valid parameters ("$.apiConsumerId", "$.appId")
-    And any other optional parameters (e.g. "$.appInstanceId", "$.zone" etc.)
+    And any other optional parameters (e.g. "$.appInstanceId", "$.edgeCloudZoneId" etc.)
     And the request body is set to a valid request body
     When the HTTP "POST" request is sent
     Then it should be created a new TI Resource
