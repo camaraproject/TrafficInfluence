@@ -96,6 +96,8 @@ The traffic can be influenced even when the user device moves to a different geo
 
 ### Fixed
 * Backslash \ is not standard markdown syntax for paragraph: https://github.com/camaraproject/TrafficInfluence/pull/53
+* 409 error code in patch operation: https://github.com/camaraproject/TrafficInfluence/pull/77
+
 ### Removed
 
 **Full Changelog**: https://github.com/camaraproject/TrafficInfluence/compare/r1.1...r1.2
