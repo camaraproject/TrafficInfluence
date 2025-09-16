@@ -65,7 +65,7 @@ The traffic can be influenced even when the user device moves to a different geo
 
 ## Release Notes
 
-This release contains the definition and documentation of:
+This pre-release contains the definition and documentation of:
 * traffic-influence v0.10.0-rc.1
 
 The API definition(s) are based on
