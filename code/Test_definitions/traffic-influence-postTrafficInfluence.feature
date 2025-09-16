@@ -1,4 +1,4 @@
-Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and patchTrafficInfluence and getAllTrafficInfluences and deleteTrafficInfluence
+Feature: CAMARA Traffic Influence API, v0.10.0 - Operation postTrafficInfluence and patchTrafficInfluence and getAllTrafficInfluences and deleteTrafficInfluence
   # Input to be provided by the implementation to the tester
   #
   # Implementation indications:
@@ -9,7 +9,7 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluence and
   # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml
 
   Background: Common traffic-influences setup
-    Given the path "/traffic-influence/vwip/traffic-influences"
+    Given the path "/traffic-influence/v0.10/traffic-influences"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"

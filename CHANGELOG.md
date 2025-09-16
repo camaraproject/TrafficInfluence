@@ -3,6 +3,7 @@
 
 ## Table of Contents
 
+- **[r1.3](#r13)**
 - **[r1.2](#r12)**
 - **[r1.1](#r11)**
 
@@ -14,6 +15,52 @@ The below sections record the changes for each API version in each release as fo
 * for the first release-candidate, all changes since the last public release
 * for subsequent release-candidate(s), only the delta to the previous release-candidate
 * for a public release, the consolidated changes since the previous public release
+
+# r1.3
+
+## Release Notes
+
+This public release contains the definition and documentation of:
+* traffic-influence v0.10.0
+
+The API definition(s) are based on
+* Commonalities v0.6.0
+* Identity and Consent Management v0.4.0
+
+## traffic-influence v0.10.0
+This is a public release for the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
+The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application.
+
+- API definition **with inline documentation**:
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.3/code/API_definitions/traffic-influence.yaml)
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.3/code/API_definitions/traffic-influence.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/TrafficInfluence/r1.3/code/API_definitions/traffic-influence.yaml)
+
+## Please note:
+
+- The release is suitable for implementers, but it is not recommended to use the API with customers in productive environments
+- The release scope is defined here: https://github.com/camaraproject/TrafficInfluence/issues/14
+- This is the first public release of the API, the modification reported below ("Changed" and "Fixed" sections) are with respect to v0.10.0-rc.1 in r1.2.
+
+### Added
+* Support for the following use cases: https://github.com/camaraproject/TrafficInfluence/discussions/15
+    
+### Changed
+* x-correlator update: https://github.com/camaraproject/TrafficInfluence/pull/49
+* Alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53 and https://github.com/camaraproject/TrafficInfluence/pull/73
+* Updated the name of the test file to be coherent with the operationId: https://github.com/camaraproject/TrafficInfluence/pull/53
+* ErrorInfo scheme updated: https://github.com/camaraproject/TrafficInfluence/pull/65 and https://github.com/camaraproject/TrafficInfluence/pull/73
+* 409 error code in patch operation: https://github.com/camaraproject/TrafficInfluence/pull/77
+
+### Fixed
+* Backslash \ is not standard markdown syntax for paragraph: https://github.com/camaraproject/TrafficInfluence/pull/53
+* info.description reordering: https://github.com/camaraproject/TrafficInfluence/pull/62
+* Path in Background section: https://github.com/camaraproject/TrafficInfluence/pull/62
+* DeviceResponse description updated: https://github.com/camaraproject/TrafficInfluence/pull/65
+
+### Removed
+
+**Full Changelog**: https://github.com/camaraproject/TrafficInfluence/commits/r1.3
 
 # r1.2
 
@@ -28,7 +75,7 @@ The API definition(s) are based on
 
 ## traffic-influence v0.10.0-rc.1
 This is the release candidate for the CAMARA Traffic Influence API. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
-The traffic can be influencend even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
+The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
 
 - API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.2/code/API_definitions/traffic-influence.yaml)
@@ -44,19 +91,16 @@ The traffic can be influencend even when the user device moves to a different ge
 ### Added
   
 ### Changed
-
-* Renamed operations: https://github.com/camaraproject/EnergyFootprintNotification/pull/83 
-* Changed OAuth2 with OpenId: https://github.com/camaraproject/EnergyFootprintNotification/pull/83
-* Updated the name of the test file to be coherent with the operationId: https://github.com/camaraproject/EnergyFootprintNotification/pull/83
 * x-correlator update: https://github.com/camaraproject/TrafficInfluence/pull/49
 * Alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53
 * Updated the name of the test file to be coherent with the operationId: https://github.com/camaraproject/TrafficInfluence/pull/53
 
 ### Fixed
+* Backslash \ is not standard markdown syntax for paragraph: https://github.com/camaraproject/TrafficInfluence/pull/53
 
 ### Removed
 
-**Full Changelog**: https://github.com/camaraproject/TrafficInfluence/commits/r1.1...r1.2
+**Full Changelog**: https://github.com/camaraproject/TrafficInfluence/compare/r1.1...r1.2
 
 # r1.1
 
@@ -71,7 +115,7 @@ The API definition(s) are based on
 
 ## traffic-influence v0.9.0-alpha.1
 This is an alpha release of the CAMARA Traffic Influence API v0.9.0. This version provides the ability to influence the traffic flow from the user device toward the Edge instance of the Application providing the optimal routing.
-The traffic can be influencend even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
+The traffic can be influenced even when the user device moves to a different geographical location to always get the optimal routing toward the nearer instance of an Application..
 
 - API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/TrafficInfluence/blob/r1.1/code/API_definitions/traffic-influence.yaml)

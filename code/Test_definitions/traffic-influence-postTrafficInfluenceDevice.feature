@@ -1,4 +1,4 @@
-Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluenceDevice
+Feature: CAMARA Traffic Influence API, v0.10.0 - Operation postTrafficInfluenceDevice
   # Input to be provided by the implementation to the tester
   #
   # Implementation indications:
@@ -9,7 +9,7 @@ Feature: CAMARA Traffic Influence API, vwip - Operation postTrafficInfluenceDevi
   # References to OAS spec schemas refer to schemas specifies in traffic-influence.yaml
 
   Background: Common traffic-influence-devices setup
-    Given the path "/traffic-influence/vwip/traffic-influence-devices"
+    Given the path "/traffic-influence/v0.10/traffic-influence-devices"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
