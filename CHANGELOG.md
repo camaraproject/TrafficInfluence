@@ -50,6 +50,7 @@ The traffic can be influenced even when the user device moves to a different geo
 * Alignment with the CAMARA Error codes: https://github.com/camaraproject/TrafficInfluence/pull/53 and https://github.com/camaraproject/TrafficInfluence/pull/73
 * Updated the name of the test file to be coherent with the operationId: https://github.com/camaraproject/TrafficInfluence/pull/53
 * ErrorInfo scheme updated: https://github.com/camaraproject/TrafficInfluence/pull/65 and https://github.com/camaraproject/TrafficInfluence/pull/73
+* 409 error code in patch operation: https://github.com/camaraproject/TrafficInfluence/pull/77
 
 ### Fixed
 * Backslash \ is not standard markdown syntax for paragraph: https://github.com/camaraproject/TrafficInfluence/pull/53
@@ -96,7 +97,6 @@ The traffic can be influenced even when the user device moves to a different geo
 
 ### Fixed
 * Backslash \ is not standard markdown syntax for paragraph: https://github.com/camaraproject/TrafficInfluence/pull/53
-* 409 error code in patch operation: https://github.com/camaraproject/TrafficInfluence/pull/77
 
 ### Removed
 
