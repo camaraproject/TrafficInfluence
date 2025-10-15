@@ -328,7 +328,7 @@ info:
     error response if it is explicitly documented in the API.
     # FAQ's
     (FAQs will be added in a later version of the documentation)
-  version: 0.10.0
+  version: wip
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -340,7 +340,7 @@ externalDocs:
 #                                     Servers                              #
 ############################################################################
 servers:
-  - url: "{apiRoot}/traffic-influence/v0.10"
+  - url: "{apiRoot}/traffic-influence/vwip"
     variables:
       apiRoot:
         default: http://localhost:9091
