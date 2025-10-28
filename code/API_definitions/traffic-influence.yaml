@@ -376,7 +376,7 @@ paths:
       summary: Retries existing TrafficInfluence Resources
       description: Reads all of the active TrafficInfluence resources owned by
        the same API Consumer
-      operationId: getTrafficInfluences
+      operationId: getAllTrafficInfluences
       responses:
         '200':
           description: Returns the information about existing TrafficInfluence
@@ -1574,4 +1574,5 @@ components:
                 status: 429
                 code: TOO_MANY_REQUESTS
                 message: Either out of resource quota or reaching rate limiting.
+
 
