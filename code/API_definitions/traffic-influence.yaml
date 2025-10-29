@@ -376,7 +376,7 @@ paths:
       summary: Retries existing TrafficInfluence Resources
       description: Reads all of the active TrafficInfluence resources owned by
        the same API Consumer
-      operationId: getTrafficInfluence
+      operationId: getAllTrafficInfluences
       responses:
         '200':
           description: Returns the information about existing TrafficInfluence
@@ -531,7 +531,7 @@ paths:
       description: Returns a specific TrafficInfluence resources owned by the
        same API Consumer. For privacy reasons, if a resource is related to a
        user, the parameter Device is not exchanged.
-      operationId: getAllTrafficInfluences
+      operationId: getTrafficInfluenceById
       parameters:
         - $ref: '#/components/parameters/x-correlator'
       security:
